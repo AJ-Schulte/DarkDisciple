@@ -27,6 +27,10 @@ func _physics_process(delta):
 		
 	if velocity.x > 0 or velocity.x < 0 :
 		$AnimatedSprite2D.play("walk")
+		if velocity.x < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.play("idle")
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo4dpw1gj6du3"
-path="res://.godot/imported/castleMain.png-7608f779abaa1863f8fbb6b626e2b4ae.ctex"
+uid="uid://dd2hnhsds4oh3"
+path="res://.godot/imported/dead_tree.png-3bbc070004f4b45374d51d69e3819869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/castleMain.png"
-dest_files=["res://.godot/imported/castleMain.png-7608f779abaa1863f8fbb6b626e2b4ae.ctex"]
+source_file="res://assets/Tiles/dead_tree.png"
+dest_files=["res://.godot/imported/dead_tree.png-3bbc070004f4b45374d51d69e3819869.ctex"]
 
 [params]
 

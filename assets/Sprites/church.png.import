@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctdp2cndncpuu"
-path="res://.godot/imported/boulder.png-acd9f87b2f8143a259437eacfeb848d4.ctex"
+uid="uid://b5ob8r5eb24e1"
+path="res://.godot/imported/church.png-61b8599ba5f63adceb3fab03144c2554.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/boulder.png"
-dest_files=["res://.godot/imported/boulder.png-acd9f87b2f8143a259437eacfeb848d4.ctex"]
+source_file="res://assets/Sprites/church.png"
+dest_files=["res://.godot/imported/church.png-61b8599ba5f63adceb3fab03144c2554.ctex"]
 
 [params]
 

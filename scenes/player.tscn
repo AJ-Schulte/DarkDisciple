@@ -106,6 +106,8 @@ radius = 13.0
 height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 4
+y_sort_enabled = true
 collision_mask = 15
 script = ExtResource("1_d0ykf")
 metadata/_edit_group_ = true

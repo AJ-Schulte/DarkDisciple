@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpwmknmfd3cnx"]
+[gd_scene load_steps=16 format=3 uid="uid://bpwmknmfd3cnx"]
 
 [ext_resource type="Texture2D" uid="uid://dd2hnhsds4oh3" path="res://assets/Tiles/dead_tree.png" id="1_avntv"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="1_f3aou"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4dpw1gj6du3" path="res://assets/Sprites/castleMain.png" id="3_dalp7"]
 [ext_resource type="Texture2D" uid="uid://ctdp2cndncpuu" path="res://assets/Sprites/boulder.png" id="4_jignk"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="6_7okav"]
+[ext_resource type="PackedScene" uid="uid://cflpuhqke04a5" path="res://scenes/player.tscn" id="7_i6pq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrib"]
 size = Vector2(476.3, 3)
@@ -3732,7 +3733,7 @@ scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ovrib")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(719, 592)
+position = Vector2(476, 476)
 limit_left = 0
 limit_top = 0
 limit_right = 4592
@@ -3787,3 +3788,9 @@ shape = SubResource("CapsuleShape2D_c56mk")
 position = Vector2(3948, 1269)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("6_7okav")
+
+[node name="Player" parent="." instance=ExtResource("7_i6pq7")]
+position = Vector2(476, 476)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpwmknmfd3cnx"]
+[gd_scene load_steps=15 format=3 uid="uid://bpwmknmfd3cnx"]
 
 [ext_resource type="Texture2D" uid="uid://dd2hnhsds4oh3" path="res://assets/Tiles/dead_tree.png" id="1_avntv"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="1_f3aou"]
@@ -3701,11 +3701,8 @@ sources/0 = SubResource("TileSetAtlasSource_1xq6a")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b88yy"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c56mk"]
-radius = 10.6
-height = 33.2
-
 [node name="Level 1" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 
 [node name="OuterWalls" type="StaticBody2D" parent="."]
 visible = false
@@ -3731,14 +3728,6 @@ position = Vector2(4600, 792)
 rotation = 1.5708
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_ovrib")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(476, 476)
-limit_left = 0
-limit_top = 0
-limit_right = 4592
-limit_bottom = 1968
-editor_draw_limits = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -3783,12 +3772,9 @@ texture = ExtResource("4_jignk")
 [node name="StaticBody2D" type="StaticBody2D" parent="Boulder"]
 physics_material_override = SubResource("PhysicsMaterial_b88yy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boulder/StaticBody2D"]
 visible = false
-position = Vector2(1, 2)
-rotation = 1.5708
-scale = Vector2(5, 5)
-shape = SubResource("CapsuleShape2D_c56mk")
+polygon = PackedVector2Array(-8.16663, 47.5, 38.5, 46.8333, 68.5, 36.1667, 79.8334, 19.1667, 72.5, 6.5, 77.5, -11.1667, 75.8334, -23.1667, 67.1667, -33.5, 45.5, -45.1667, 20.1667, -51.8333, 12.8334, -47.8333, -17.1666, -47.5, -40.5, -41.1667, -56.5, -35.5, -68.5, -20.1667, -76.1666, -12.5, -79.1666, 1.83334, -77.8333, 26.8333, -63.1666, 37.1667, -43.8333, 45.5)
 
 [node name="Church" type="Sprite2D" parent="."]
 position = Vector2(3948, 1269)
@@ -3800,6 +3786,15 @@ texture = ExtResource("6_7okav")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Church/StaticBody2D"]
 visible = false
 polygon = PackedVector2Array(177.144, 322.857, 180, -114.286, 102.857, -194.286, 71.4287, -225.714, 65.7148, -291.429, 37.1436, -314.286, 5.71484, -294.286, -5.71387, -220, -31.4287, -197.143, -105.714, -122.857, -105.714, -91.4287, -188.571, -8.57153, -185.714, 71.4285, -180, 171.428, -111.429, 177.143, -91.4287, 325.714, 37.1436, 271.428)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(476, 476)
+zoom = Vector2(0.8, 0.8)
+limit_left = 0
+limit_top = 0
+limit_right = 6888
+limit_bottom = 2952
+editor_draw_limits = true
 
 [node name="Player" parent="." instance=ExtResource("7_i6pq7")]
 position = Vector2(476, 476)

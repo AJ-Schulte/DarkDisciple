@@ -1,9 +1,9 @@
-TileMap
+RemoteTransform2D
+Camera2D
 CollisionShape2D
 StaticBody2D
 Sprite2D
-RemoteTransform2D
-Camera2D
+TileMap
 CollisionPolygon2D
 Node2D
 AnimatedSprite2D

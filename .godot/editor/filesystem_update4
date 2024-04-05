@@ -1,3 +1,4 @@
-res://scenes/castle_vice_command_room.tscn
-res://scenes/church.tscn
 res://scenes/castle.tscn
+res://scenes/sample_level.tscn
+res://scenes/player.tscn
+res://scenes/level_1.tscn

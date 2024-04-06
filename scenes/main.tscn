@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://h6xkobhkkaei"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_ap32t"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ap32t")
+
+[node name="StartGame" type="Button" parent="."]
+offset_left = 393.0
+offset_top = 184.0
+offset_right = 489.0
+offset_bottom = 215.0
+text = "Start Game"
+
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]

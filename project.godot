@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Dark Disciple"
-run/main_scene="res://scenes/sample_level.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+
+[autoload]
+
+SceneSwitch="*res://scripts/scene_switch.gd"
 
 [editor]
 

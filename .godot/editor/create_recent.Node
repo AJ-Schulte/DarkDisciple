@@ -1,10 +1,13 @@
-RemoteTransform2D
-Camera2D
 CollisionShape2D
+RemoteTransform2D
+Area2D
+Node2D
+Camera2D
+Button
+Node
 StaticBody2D
 Sprite2D
 TileMap
 CollisionPolygon2D
-Node2D
 AnimatedSprite2D
 CharacterBody2D

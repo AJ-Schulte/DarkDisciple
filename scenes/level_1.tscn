@@ -1,12 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpwmknmfd3cnx"]
+[gd_scene load_steps=16 format=3 uid="uid://bpwmknmfd3cnx"]
 
 [ext_resource type="Texture2D" uid="uid://dd2hnhsds4oh3" path="res://assets/Tiles/dead_tree.png" id="1_avntv"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="1_f3aou"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_h3kuf"]
 [ext_resource type="Texture2D" uid="uid://ckgmu5ct0d8st" path="res://assets/Tiles/WallSet.png" id="2_3kkgq"]
 [ext_resource type="Texture2D" uid="uid://bo4dpw1gj6du3" path="res://assets/Sprites/castleMain.png" id="3_dalp7"]
 [ext_resource type="Texture2D" uid="uid://ctdp2cndncpuu" path="res://assets/Sprites/boulder.png" id="4_jignk"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="6_7okav"]
-[ext_resource type="PackedScene" uid="uid://cflpuhqke04a5" path="res://scenes/player.tscn" id="7_i6pq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrib"]
 size = Vector2(476.3, 3)
@@ -3701,8 +3701,12 @@ sources/0 = SubResource("TileSetAtlasSource_1xq6a")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b88yy"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0rf6"]
+size = Vector2(34.6667, 20)
+
 [node name="Level 1" type="Node2D"]
 scale = Vector2(1.5, 1.5)
+script = ExtResource("1_h3kuf")
 
 [node name="OuterWalls" type="StaticBody2D" parent="."]
 visible = false
@@ -3787,17 +3791,19 @@ texture = ExtResource("6_7okav")
 visible = false
 polygon = PackedVector2Array(177.144, 322.857, 180, -114.286, 102.857, -194.286, 71.4287, -225.714, 65.7148, -291.429, 37.1436, -314.286, 5.71484, -294.286, -5.71387, -220, -31.4287, -197.143, -105.714, -122.857, -105.714, -91.4287, -188.571, -8.57153, -185.714, 71.4285, -180, 171.428, -111.429, 177.143, -91.4287, 325.714, 37.1436, 271.428)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(476, 476)
-zoom = Vector2(0.85, 0.85)
-limit_left = 0
-limit_top = 0
-limit_right = 6888
-limit_bottom = 2952
-editor_draw_limits = true
+[node name="TransitionArea" type="Area2D" parent="."]
+position = Vector2(520, 262)
 
-[node name="Player" parent="." instance=ExtResource("7_i6pq7")]
-position = Vector2(476, 476)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea"]
+position = Vector2(0.666687, 0)
+shape = SubResource("RectangleShape2D_u0rf6")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
+[node name="TransitionArea2" type="Area2D" parent="."]
+position = Vector2(3960.67, 1382)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea2"]
+position = Vector2(0.666687, 0)
+shape = SubResource("RectangleShape2D_u0rf6")
+
+[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn"]]
+[connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn"]]

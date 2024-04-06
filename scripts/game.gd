@@ -40,7 +40,7 @@ func _on_goto_room(scene:PackedScene, location):
 		$WorldCamera.limit_left =0
 		$WorldCamera.limit_right = 6888
 		$WorldCamera.limit_top =0
-		$WorldCamera.limit_bottom = 2592
+		$WorldCamera.limit_bottom = 2952
 		$Player.set_scale(Vector2(1.3, 1.3))
 		if(current_level == $Levels/Castle):
 			$Player.set_position(Vector2(784,460))

@@ -4,11 +4,8 @@ extends Node
 var game_world:Node2D
 
 func _on_start_game_pressed():
-	
 	game_world=load(game_scene).instantiate()
 	add_child(game_world)
-	#game_world.end_game.connect(open_main_menu)
-
 
 func open_main_menu():
 	

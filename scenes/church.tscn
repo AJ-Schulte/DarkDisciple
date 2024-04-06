@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lipx32dw57fu"]
+[gd_scene load_steps=12 format=3 uid="uid://lipx32dw57fu"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ds87n"]
 [ext_resource type="Texture2D" uid="uid://bi1ff7ufpagrg" path="res://assets/Tiles/orb.png" id="1_sfbqc"]
@@ -5492,6 +5492,9 @@ sources/2 = SubResource("TileSetAtlasSource_g6clv")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41xqb"]
 size = Vector2(32, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k01ag"]
+size = Vector2(229, 213)
+
 [node name="Church" type="Node2D"]
 script = ExtResource("1_ds87n")
 
@@ -5517,3 +5520,12 @@ texture = ExtResource("4_8gobk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
 visible = false
 shape = SubResource("RectangleShape2D_41xqb")
+
+[node name="TransitionArea" type="Area2D" parent="."]
+position = Vector2(2293, 2425)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k01ag")
+
+[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_1.tscn", "Level 1"]]

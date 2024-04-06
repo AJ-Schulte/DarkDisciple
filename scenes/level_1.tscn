@@ -3805,5 +3805,5 @@ position = Vector2(3960.67, 1382)
 position = Vector2(0.666687, 0)
 shape = SubResource("RectangleShape2D_u0rf6")
 
-[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn"]]
-[connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn"]]
+[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn", "Castle"]]
+[connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn", "Church"]]

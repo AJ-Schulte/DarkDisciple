@@ -5,5 +5,5 @@ res://scenes/castle.tscn
 res://scenes/church.tscn
 res://scenes/main.tscn
 res://scenes/game.tscn
-res://scripts/main.gd
+res://scenes/level_2.tscn
 res://scripts/game.gd

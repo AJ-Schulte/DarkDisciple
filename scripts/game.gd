@@ -34,6 +34,7 @@ func _on_goto_room(scene:PackedScene, location):
 		$WorldCamera.limit_right = 3792
 		$WorldCamera.limit_top = 0
 		$WorldCamera.limit_bottom = 2570
+		$WorldCamera.set_zoom(Vector2(0.8, 0.8))
 		$Player.set_position(Vector2(2300,2100))
 		$Player.set_scale(Vector2(2, 2))
 	elif(location == 'Level 1'):

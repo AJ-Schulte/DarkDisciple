@@ -1,9 +1,1 @@
-res://scenes/sample_level.tscn
-res://scenes/player.tscn
-res://scenes/level_1.tscn
-res://scenes/castle.tscn
-res://scenes/church.tscn
-res://scenes/main.tscn
-res://scenes/game.tscn
 res://scenes/level_2.tscn
-res://scripts/game.gd

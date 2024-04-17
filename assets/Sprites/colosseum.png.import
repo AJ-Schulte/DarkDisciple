@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi1ff7ufpagrg"
-path="res://.godot/imported/orb.png-1805d6e80776ed4ba55524a2578dfb1a.ctex"
+uid="uid://jrituhfll88e"
+path="res://.godot/imported/colosseum.png-87512b0ce7415ec74d1df21429613539.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/orb.png"
-dest_files=["res://.godot/imported/orb.png-1805d6e80776ed4ba55524a2578dfb1a.ctex"]
+source_file="res://assets/Sprites/colosseum.png"
+dest_files=["res://.godot/imported/colosseum.png-87512b0ce7415ec74d1df21429613539.ctex"]
 
 [params]
 

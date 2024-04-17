@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duuhmop7y5ibi"
-path="res://.godot/imported/noah_assets2.png-f085f9c708dd535f1a640ad69c289c0e.ctex"
+uid="uid://ciua5vnndriu4"
+path="res://.godot/imported/red_orb.png-0c2559dd6ac25e79a4f61aa445c2f918.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/noah_assets2.png"
-dest_files=["res://.godot/imported/noah_assets2.png-f085f9c708dd535f1a640ad69c289c0e.ctex"]
+source_file="res://assets/Sprites/red_orb.png"
+dest_files=["res://.godot/imported/red_orb.png-0c2559dd6ac25e79a4f61aa445c2f918.ctex"]
 
 [params]
 

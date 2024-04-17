@@ -1,5 +1,2 @@
-res://scenes/level_2.tscn
 res://scenes/church.tscn
-res://scenes/orb.tscn
-res://scenes/castle.tscn
-res://scripts/level.gd
+res://scenes/level_2.tscn

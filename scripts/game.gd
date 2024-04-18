@@ -11,6 +11,10 @@ func _ready():
 	current_level=load(start_scene).instantiate()
 	
 	$Levels.add_child(current_level)
+	$WorldCamera.limit_left =0
+	$WorldCamera.limit_right = 6888
+	$WorldCamera.limit_top =0
+	$WorldCamera.limit_bottom = 2952
 	current_level.goto_room.connect(_on_goto_room)
 	current_level.goto_main.connect(_on_goto_main)
 	

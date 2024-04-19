@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://budg573imhfry"]
+[gd_scene load_steps=11 format=3 uid="uid://budg573imhfry"]
 
 [ext_resource type="Texture2D" uid="uid://c5l60j3pvv78p" path="res://assets/Tiles/noah_assets1.png" id="1_nvu6l"]
 [ext_resource type="Texture2D" uid="uid://bpg6dubevn3vi" path="res://assets/Tiles/groundTiles.png" id="2_5c2vs"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bo4dpw1gj6du3" path="res://assets/Sprites/castleMain.png" id="3_or8vc"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="4_agpb1"]
 [ext_resource type="Texture2D" uid="uid://jrituhfll88e" path="res://assets/Sprites/colosseum.png" id="5_cnjot"]
-[ext_resource type="PackedScene" uid="uid://c7ahtmb01o03d" path="res://scenes/lever.tscn" id="7_53r5b"]
-[ext_resource type="Texture2D" uid="uid://bidjt6b367o73" path="res://assets/Tiles/wall.png" id="7_gu5ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gemrd"]
 texture = ExtResource("1_nvu6l")
@@ -4807,9 +4805,6 @@ sources/0 = SubResource("TileSetAtlasSource_gemrd")
 sources/2 = SubResource("TileSetAtlasSource_34h1l")
 sources/1 = SubResource("TileSetAtlasSource_l64p2")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaof4"]
-size = Vector2(32, 32)
-
 [node name="Level 2" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 
@@ -4862,20 +4857,3 @@ texture = ExtResource("5_cnjot")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colosseum/StaticBody2D"]
 visible = false
 polygon = PackedVector2Array(35.5553, 216.889, 42.6664, 213.333, 42.6664, 202.667, 78.222, 202.667, 103.111, 195.556, 184.889, 170.667, 224, 149.333, 252.444, 120.889, 270.222, 88.8889, 277.333, 49.7778, 284.444, 7.11108, 291.555, -7.11115, 291.555, -21.3333, 295.111, -60.4445, 298.666, -103.111, 298.666, -120.889, 295.111, -128, 273.778, -156.444, 227.555, -184.889, 177.778, -199.111, 131.555, -209.778, 99.5553, -216.889, 56.8887, -220.444, -96.0002, -220.444, -135.111, -213.333, -184.889, -202.667, -238.222, -184.889, -277.334, -160, -302.222, -135.111, -305.778, -120.889, -305.778, -96, -305.778, -71.1111, -302.222, -39.1111, -298.667, -10.6667, -291.556, 14.2222, -284.445, 60.4445, -277.334, 88.8889, -270.222, 106.667, -256, 128, -238.222, 149.333, -213.334, 160, -167.111, 181.333, -99.5558, 202.667, -46.2224, 213.333, -39.1113, 209.778, -42.6669, 135.111, 35.5553, 135.111)
-
-[node name="Wall" type="Sprite2D" parent="."]
-modulate = Color(0.372549, 0.290196, 0.258824, 1)
-position = Vector2(1768, 1357.33)
-scale = Vector2(3.83333, 3.5)
-texture = ExtResource("7_gu5ge")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
-visible = false
-shape = SubResource("RectangleShape2D_aaof4")
-
-[node name="Lever" parent="." instance=ExtResource("7_53r5b")]
-modulate = Color(0.607843, 0.607843, 0.607843, 1)
-position = Vector2(1610, 3365)
-scale = Vector2(0.2, 0.2)

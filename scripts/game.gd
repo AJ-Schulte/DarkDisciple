@@ -51,6 +51,24 @@ func _on_goto_room(scene:PackedScene, location):
 			$Player.set_position(Vector2(784,460))
 		elif(current_level == $Levels/Church):
 			$Player.set_position(Vector2(5944, 2112))
+	elif(location == 'Level 2'):
+		$WorldCamera.limit_left = 3096
+		$WorldCamera.limit_right = 6888
+		$WorldCamera.limit_top = 0
+		$WorldCamera.limit_bottom = 5256
+		$Player.set_scale(Vector2(1.3, 1.3))
+		if(current_level == $Levels/Church):
+			$Player.set_position(Vector2(5944, 2112))
+		elif(current_level == $Levels/Hosue):
+			$Player.set_position(Vector2(-2288,1112))
+	elif(location == 'Colosseum'):
+		$WorldCamera.limit_left = 2432
+		$WorldCamera.limit_right = 6336
+		$WorldCamera.limit_top = 0
+		$WorldCamera.limit_bottom = 4608
+		$WorldCamera.set_zoom(Vector2(0.5, 0.5))
+		$Player.set_position(Vector2(4608,3968))
+		$Player.set_scale(Vector2(3, 3))
 	
 	new_level.goto_room.connect(_on_goto_room)
 	new_level.goto_main.connect(_on_goto_main)

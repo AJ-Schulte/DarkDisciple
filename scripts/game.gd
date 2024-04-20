@@ -33,7 +33,7 @@ func _on_goto_room(scene:PackedScene, location):
 		$WorldCamera.limit_bottom = 1296
 		$Player.set_position(Vector2(900,900))
 		$Player.set_scale(Vector2(1, 1))
-	elif (location == 'Church'):
+	if (location == 'Church'):
 		$WorldCamera.limit_left =0
 		$WorldCamera.limit_right = 3792
 		$WorldCamera.limit_top = 0
@@ -41,7 +41,7 @@ func _on_goto_room(scene:PackedScene, location):
 		$WorldCamera.set_zoom(Vector2(0.8, 0.8))
 		$Player.set_position(Vector2(2300,2100))
 		$Player.set_scale(Vector2(2, 2))
-	elif(location == 'Level 1'):
+	if(location == 'Level 1'):
 		$WorldCamera.limit_left =0
 		$WorldCamera.limit_right = 6888
 		$WorldCamera.limit_top =0
@@ -51,17 +51,7 @@ func _on_goto_room(scene:PackedScene, location):
 			$Player.set_position(Vector2(784,460))
 		elif(current_level == $Levels/Church):
 			$Player.set_position(Vector2(5944, 2112))
-	elif(location == 'Level 2'):
-		$WorldCamera.limit_left = 3096
-		$WorldCamera.limit_right = 6888
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 5256
-		$Player.set_scale(Vector2(1.3, 1.3))
-		if(current_level == $Levels/Church):
-			$Player.set_position(Vector2(5944, 2112))
-		elif(current_level == $Levels/Hosue):
-			$Player.set_position(Vector2(-2288,1112))
-	elif(location == 'Colosseum'):
+	if(location == 'Colosseum'):
 		$WorldCamera.limit_left = 2432
 		$WorldCamera.limit_right = 6336
 		$WorldCamera.limit_top = 0
@@ -69,7 +59,26 @@ func _on_goto_room(scene:PackedScene, location):
 		$WorldCamera.set_zoom(Vector2(0.5, 0.5))
 		$Player.set_position(Vector2(4608,3968))
 		$Player.set_scale(Vector2(3, 3))
-	
+	if(location == 'House'):
+		$WorldCamera.limit_left = 0
+		$WorldCamera.limit_right = 576
+		$WorldCamera.limit_top = 0
+		$WorldCamera.limit_bottom = 383
+		$WorldCamera.set_zoom(Vector2(1,1))
+		$Player.set_position(Vector2(272, 296))
+		$Player.set_scale(Vector2(0.8,0.8))
+	if(location == 'Level 2'):
+		$WorldCamera.limit_left = -3096
+		$WorldCamera.limit_right = 6888
+		$WorldCamera.limit_top = 0
+		$WorldCamera.limit_bottom = 5256
+		$WorldCamera.set_zoom(Vector2(1,1))
+		$Player.set_scale(Vector2(1.3, 1.3))
+		if(current_level == $Levels/Church):
+			$Player.set_position(Vector2(5944, 2112))
+		elif(current_level == $Levels/House):
+			$Player.set_position(Vector2(-2288,1112))
+		
 	new_level.goto_room.connect(_on_goto_room)
 	new_level.goto_main.connect(_on_goto_main)
 	old_level=current_level

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dancno1u4m843"]
+
+[ext_resource type="Texture2D" uid="uid://b3n0uweits2y" path="res://assets/Sprites/bed.png" id="1_pkh47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7woy0"]
+size = Vector2(64, 54)
+
+[node name="Bed" type="Sprite2D"]
+texture = ExtResource("1_pkh47")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_7woy0")

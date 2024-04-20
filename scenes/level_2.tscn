@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://budg573imhfry"]
+[gd_scene load_steps=15 format=3 uid="uid://budg573imhfry"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_bu8w7"]
 [ext_resource type="Texture2D" uid="uid://c5l60j3pvv78p" path="res://assets/Tiles/noah_assets1.png" id="1_nvu6l"]
 [ext_resource type="Texture2D" uid="uid://bpg6dubevn3vi" path="res://assets/Tiles/groundTiles.png" id="2_5c2vs"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="2_w3ow4"]
 [ext_resource type="Texture2D" uid="uid://bo4dpw1gj6du3" path="res://assets/Sprites/castleMain.png" id="3_or8vc"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="4_agpb1"]
 [ext_resource type="Texture2D" uid="uid://jrituhfll88e" path="res://assets/Sprites/colosseum.png" id="5_cnjot"]
+[ext_resource type="Texture2D" uid="uid://bd46k3fb82655" path="res://assets/Sprites/house.png" id="7_cu0iy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gemrd"]
 texture = ExtResource("1_nvu6l")
@@ -4805,8 +4807,15 @@ sources/0 = SubResource("TileSetAtlasSource_gemrd")
 sources/2 = SubResource("TileSetAtlasSource_34h1l")
 sources/1 = SubResource("TileSetAtlasSource_l64p2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljd32"]
+size = Vector2(39.6667, 39.8333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3bg7"]
+size = Vector2(122.667, 128)
+
 [node name="Level 2" type="Node2D"]
 scale = Vector2(1.5, 1.5)
+script = ExtResource("1_bu8w7")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_cj17s")
@@ -4857,3 +4866,31 @@ texture = ExtResource("5_cnjot")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colosseum/StaticBody2D"]
 visible = false
 polygon = PackedVector2Array(35.5553, 216.889, 42.6664, 213.333, 42.6664, 202.667, 78.222, 202.667, 103.111, 195.556, 184.889, 170.667, 224, 149.333, 252.444, 120.889, 270.222, 88.8889, 277.333, 49.7778, 284.444, 7.11108, 291.555, -7.11115, 291.555, -21.3333, 295.111, -60.4445, 298.666, -103.111, 298.666, -120.889, 295.111, -128, 273.778, -156.444, 227.555, -184.889, 177.778, -199.111, 131.555, -209.778, 99.5553, -216.889, 56.8887, -220.444, -96.0002, -220.444, -135.111, -213.333, -184.889, -202.667, -238.222, -184.889, -277.334, -160, -302.222, -135.111, -305.778, -120.889, -305.778, -96, -305.778, -71.1111, -302.222, -39.1111, -298.667, -10.6667, -291.556, 14.2222, -284.445, 60.4445, -277.334, 88.8889, -270.222, 106.667, -256, 128, -238.222, 149.333, -213.334, 160, -167.111, 181.333, -99.5558, 202.667, -46.2224, 213.333, -39.1113, 209.778, -42.6669, 135.111, 35.5553, 135.111)
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(-1525.33, 613.333)
+scale = Vector2(2, 2)
+texture = ExtResource("7_cu0iy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="House"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/StaticBody2D"]
+scale = Vector2(8, 8)
+polygon = PackedVector2Array(1, 5.33333, 4, 5.33333, 4, 2.33333, 4.33334, 2.33333, 4.33334, -3.66667, 0, -6, -4.33334, -3.66667, -4, 2, -4, 2.33333, -4, 5.33333, -1, 5.33333, -1, 3, 1, 3)
+
+[node name="TransitionArea" type="Area2D" parent="."]
+position = Vector2(-1525.33, 688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea"]
+position = Vector2(0, -6.75)
+shape = SubResource("RectangleShape2D_ljd32")
+
+[node name="TransitionArea2" type="Area2D" parent="."]
+position = Vector2(1765.33, 1365.33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea2"]
+position = Vector2(2.66663, -16)
+shape = SubResource("RectangleShape2D_u3bg7")
+
+[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/house.tscn", "House"]]
+[connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/colosseum.tscn", "Colosseum"]]

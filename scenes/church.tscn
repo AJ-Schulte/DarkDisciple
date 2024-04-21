@@ -5587,12 +5587,14 @@ position = Vector2(2293, 2425)
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_k01ag")
 
+[node name="Orb" type="Sprite2D" parent="."]
+position = Vector2(247, 373)
+scale = Vector2(5, 5)
+texture = ExtResource("6_4frq7")
+
 [node name="TransitionArea2" type="Area2D" parent="."]
 position = Vector2(247, 373)
 scale = Vector2(5, 5)
-
-[node name="Sprite2D" type="Sprite2D" parent="TransitionArea2"]
-texture = ExtResource("6_4frq7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea2"]
 position = Vector2(-3.9, -4.15)

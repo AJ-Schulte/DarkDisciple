@@ -1,9 +1,2 @@
-res://scenes/player.tscn
-res://scenes/level_1.tscn
-res://scenes/castle.tscn
 res://scenes/church.tscn
-res://scenes/level_2.tscn
-res://scenes/house.tscn
-res://scripts/game.gd
-res://scripts/level.gd
-res://scenes/colosseum.tscn
+res://scenes/level_3.tscn

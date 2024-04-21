@@ -4819,7 +4819,7 @@ sources/1 = SubResource("TileSetAtlasSource_l64p2")
 size = Vector2(26, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo5p8"]
-size = Vector2(102, 49)
+size = Vector2(102, 93)
 
 [node name="Level 2" type="Node2D"]
 position = Vector2(2063, -1)
@@ -4899,7 +4899,8 @@ shape = SubResource("RectangleShape2D_2hoyj")
 position = Vector2(1767, 1344)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea5"]
-position = Vector2(1, -14.5)
+position = Vector2(1, 7.5)
 shape = SubResource("RectangleShape2D_bo5p8")
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/house.tscn", "House"]]
+[connection signal="body_entered" from="TransitionArea5" to="." method="_on_transition_entered" binds= ["res://scenes/colosseum.tscn", "Colosseum"]]

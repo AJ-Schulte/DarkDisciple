@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://8wfw0yhpdnv5"]
+[gd_scene load_steps=12 format=3 uid="uid://8wfw0yhpdnv5"]
 
 [ext_resource type="Texture2D" uid="uid://f5eu1oob2c2m" path="res://assets/Tiles/Dungeon_Tileset.png" id="1_o4t5g"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_tuh8l"]
 [ext_resource type="Texture2D" uid="uid://bsa2u1qumi2a0" path="res://assets/Sprites/OrbRoom.png" id="1_xqfbf"]
 [ext_resource type="Texture2D" uid="uid://rgbal4rinyu6" path="res://assets/Sprites/colosseum.png" id="2_3sv72"]
-[ext_resource type="PackedScene" uid="uid://b46cxunj8ox5i" path="res://scenes/orb.tscn" id="3_lsb8w"]
 [ext_resource type="Texture2D" uid="uid://bidjt6b367o73" path="res://assets/Tiles/wall.png" id="4_hckf0"]
+[ext_resource type="Texture2D" uid="uid://dpkbh4gquorsl" path="res://assets/Sprites/blue_orb.png" id="6_voacg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uj67k"]
 texture = ExtResource("1_o4t5g")
@@ -125,6 +125,9 @@ size = Vector2(3184, 416)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hpiv"]
 size = Vector2(32, 32)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7jpk"]
+radius = 80.0
+
 [node name="Colosseum" type="Node2D"]
 position = Vector2(-584, 24)
 scale = Vector2(0.5, 0.5)
@@ -166,13 +169,9 @@ visible = false
 position = Vector2(5032, 6160)
 shape = SubResource("RectangleShape2D_65fjj")
 
-[node name="Orb" parent="." instance=ExtResource("3_lsb8w")]
-position = Vector2(4320, 672)
-scale = Vector2(40, 40)
-
 [node name="Wall" type="Sprite2D" parent="."]
 modulate = Color(0.905882, 0.654902, 0.298039, 1)
-position = Vector2(4328.93, 1595.58)
+position = Vector2(5408, 1616)
 scale = Vector2(-6.20927, 6.79036)
 texture = ExtResource("4_hckf0")
 
@@ -182,4 +181,16 @@ texture = ExtResource("4_hckf0")
 visible = false
 shape = SubResource("RectangleShape2D_7hpiv")
 
-[connection signal="body_entered" from="Orb" to="." method="_on_transition_entered" binds= ["res://scenes/level_3.tscn", "Level 3"]]
+[node name="Orb" type="Sprite2D" parent="."]
+position = Vector2(4400, 848)
+scale = Vector2(15, 15)
+texture = ExtResource("6_voacg")
+
+[node name="TransitionArea" type="Area2D" parent="."]
+position = Vector2(4352, 816)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea"]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_j7jpk")
+
+[connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_3.tscn", "Level 3"]]

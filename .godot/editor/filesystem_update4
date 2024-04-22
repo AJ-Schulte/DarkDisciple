@@ -4,3 +4,6 @@ res://scenes/level_1.tscn
 res://scenes/castle.tscn
 res://scenes/church.tscn
 res://scenes/level_2.tscn
+res://scripts/level.gd
+res://scripts/game.gd
+res://scenes/colosseum.tscn

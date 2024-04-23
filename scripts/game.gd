@@ -46,6 +46,7 @@ func _on_goto_room(scene:PackedScene, location):
 		$WorldCamera.limit_right = 6888
 		$WorldCamera.limit_top =0
 		$WorldCamera.limit_bottom = 2952
+		$WorldCamera.set_zoom(Vector2(1,1))
 		$Player.set_scale(Vector2(1.3, 1.3))
 		if(current_level == $Levels/Castle):
 			$Player.set_position(Vector2(784,460))
@@ -69,17 +70,17 @@ func _on_goto_room(scene:PackedScene, location):
 		$Player.set_scale(Vector2(0.8,0.8))
 		$Player.SPEED = 160.0
 	elif(location == 'Level 2'):
-		$WorldCamera.limit_left = 0
-		$WorldCamera.limit_right = 6660
+		$WorldCamera.limit_left = -1035
+		$WorldCamera.limit_right = 8950.5
 		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 3485
+		$WorldCamera.limit_bottom = 5255
 		$WorldCamera.set_zoom(Vector2(1,1))
-		$Player.set_scale(Vector2(1, 1))
+		$Player.set_scale(Vector2(1.3, 1.3))
 		if(current_level == $Levels/House):
-			$Player.set_position(Vector2(550,725))
+			$Player.set_position(Vector2(-225,1100))
 			$Player.SPEED = 320.0
 		elif(current_level == $Levels/Church):
-			$Player.set_position(Vector2(6030, 1415))
+			$Player.set_position(Vector2(8000, 2100))
 	elif(location == 'Level 3'):
 		$WorldCamera.limit_left = 0
 		$WorldCamera.limit_right = 3552

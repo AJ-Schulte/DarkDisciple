@@ -4823,6 +4823,7 @@ size = Vector2(102, 93)
 
 [node name="Level 2" type="Node2D"]
 position = Vector2(2063, -1)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_bu8w7")
 
 [node name="TileMap" type="TileMap" parent="."]

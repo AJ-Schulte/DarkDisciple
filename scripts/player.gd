@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 300.0
+@export var SPEED = 320.0
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -43,3 +43,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
+
+
+
+
+
+

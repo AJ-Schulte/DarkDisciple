@@ -171,7 +171,7 @@ shape = SubResource("RectangleShape2D_65fjj")
 
 [node name="Wall" type="Sprite2D" parent="."]
 modulate = Color(0.905882, 0.654902, 0.298039, 1)
-position = Vector2(5408, 1616)
+position = Vector2(4336, 1600)
 scale = Vector2(-6.20927, 6.79036)
 texture = ExtResource("4_hckf0")
 

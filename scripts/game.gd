@@ -81,6 +81,13 @@ func _on_goto_room(scene:PackedScene, location):
 			$Player.SPEED = 320.0
 		elif(current_level == $Levels/Church):
 			$Player.set_position(Vector2(8000, 2100))
+	elif(location == 'Final Boss Area'):
+		$WorldCamera.limit_left = 0
+		$WorldCamera.limit_right = 1925
+		$WorldCamera.limit_top = 0
+		$WorldCamera.limit_bottom = 1296
+		$WorldCamera.set_zoom(Vector2(1.2, 1.2))
+		$Player.set_position(Vector2(1025,1060))
 	elif(location == 'Level 3'):
 		$WorldCamera.limit_left = 0
 		$WorldCamera.limit_right = 3552

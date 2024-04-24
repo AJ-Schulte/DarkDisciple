@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c5l60j3pvv78p" path="res://assets/Tiles/noah_assets1.png" id="1_nvu6l"]
 [ext_resource type="Texture2D" uid="uid://bpg6dubevn3vi" path="res://assets/Tiles/groundTiles.png" id="2_5c2vs"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="2_w3ow4"]
-[ext_resource type="Texture2D" uid="uid://bo4dpw1gj6du3" path="res://assets/Sprites/castleMain.png" id="3_or8vc"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="4_agpb1"]
+[ext_resource type="Texture2D" uid="uid://c6v81wq0rjva2" path="res://assets/Sprites/Ruined_castle.png" id="5_3dclv"]
 [ext_resource type="Texture2D" uid="uid://bd46k3fb82655" path="res://assets/Sprites/house.png" id="7_cu0iy"]
 [ext_resource type="Texture2D" uid="uid://inc6e5bqfr2s" path="res://assets/Sprites/colosseumBuilding.png" id="7_of8j6"]
 
@@ -4843,14 +4843,15 @@ layer_4/tile_data = PackedInt32Array(6619165, 2162689, 26, 6684701, 2162689, 27,
 [node name="CastleRuins" type="Sprite2D" parent="."]
 modulate = Color(0.576471, 0.576471, 0.576471, 1)
 position = Vector2(520, 176)
-scale = Vector2(0.547, 0.48)
-texture = ExtResource("3_or8vc")
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_3dclv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CastleRuins"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CastleRuins/StaticBody2D"]
 visible = false
-polygon = PackedVector2Array(321.755, 364.583, 316.271, -366.667, -316.271, -368.75, -318.099, 362.5, -58.5009, 362.5, -59.6942, 299.948, -234.004, 297.917, -234.004, 233.333, -54.8446, 233.333, -58.5009, 95.8333, 60.329, 97.9167, 62.1572, 239.583, 237.66, 237.5, 239.488, 300, 58.5009, 300, 62.1572, 366.667)
+scale = Vector2(1.5, 1.5)
+polygon = PackedVector2Array(341.587, 332.698, 331.429, -344.127, -335.238, -336.508, -339.048, 332.698, -63.4919, 342.857, -66.0317, 276.825, -269.206, 276.825, -261.587, 215.873, -64.762, 213.333, -41.9048, 173.968, 53.3332, 175.238, 77.4604, 209.524, 311.111, 215.873, 316.19, 275.556, 67.3015, 278.095, 63.4922, 340.318)
 
 [node name="Church" type="Sprite2D" parent="."]
 self_modulate = Color(0.552941, 0.384314, 0.403922, 1)

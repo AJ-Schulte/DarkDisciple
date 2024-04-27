@@ -1,11 +1,12 @@
-res://scenes/level_3.tscn
 res://scenes/player.tscn
+res://scripts/main.gd
 res://scenes/level_1.tscn
 res://scenes/castle.tscn
 res://scenes/church.tscn
 res://scenes/level_2.tscn
+res://scenes/level_3.tscn
 res://scenes/colosseum.tscn
 res://scenes/final_boss_area.tscn
-res://scripts/level.gd
-res://scripts/game.gd
 res://scenes/house.tscn
+res://scenes/main.tscn
+res://scenes/credits.tscn

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://budg573imhfry"]
+[gd_scene load_steps=16 format=3 uid="uid://budg573imhfry"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_bu8w7"]
 [ext_resource type="Texture2D" uid="uid://c5l60j3pvv78p" path="res://assets/Tiles/noah_assets1.png" id="1_nvu6l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c6v81wq0rjva2" path="res://assets/Sprites/Ruined_castle.png" id="5_3dclv"]
 [ext_resource type="Texture2D" uid="uid://bd46k3fb82655" path="res://assets/Sprites/house.png" id="7_cu0iy"]
 [ext_resource type="Texture2D" uid="uid://inc6e5bqfr2s" path="res://assets/Sprites/colosseumBuilding.png" id="7_of8j6"]
+[ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="9_xbbhr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gemrd"]
 texture = ExtResource("1_nvu6l")
@@ -4903,6 +4904,14 @@ position = Vector2(1767, 1344)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea5"]
 position = Vector2(1, 7.5)
 shape = SubResource("RectangleShape2D_bo5p8")
+
+[node name="Bed" parent="." instance=ExtResource("9_xbbhr")]
+position = Vector2(3136, 835.333)
+checkpoint = "Level2Checkpoint1"
+
+[node name="Bed2" parent="." instance=ExtResource("9_xbbhr")]
+position = Vector2(1182.67, 2768.67)
+checkpoint = "Level2Checkpoint2"
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/house.tscn", "House"]]
 [connection signal="body_entered" from="TransitionArea5" to="." method="_on_transition_entered" binds= ["res://scenes/colosseum.tscn", "Colosseum"]]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @export var SPEED = 320.0
+@export var currentCheckpoint : String
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

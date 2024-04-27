@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpwmknmfd3cnx"]
+[gd_scene load_steps=17 format=3 uid="uid://bpwmknmfd3cnx"]
 
 [ext_resource type="Texture2D" uid="uid://dd2hnhsds4oh3" path="res://assets/Tiles/dead_tree.png" id="1_avntv"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="1_f3aou"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4dpw1gj6du3" path="res://assets/Sprites/castleMain.png" id="3_dalp7"]
 [ext_resource type="Texture2D" uid="uid://ctdp2cndncpuu" path="res://assets/Sprites/boulder.png" id="4_jignk"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="6_7okav"]
+[ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="8_s38lb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrib"]
 size = Vector2(476.3, 3)
@@ -3810,6 +3811,14 @@ position = Vector2(3960.67, 1382)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea2"]
 position = Vector2(0.666687, 0)
 shape = SubResource("RectangleShape2D_u0rf6")
+
+[node name="Bed" parent="." instance=ExtResource("8_s38lb")]
+position = Vector2(640, 444)
+checkpoint = "Level1Checkpoint1"
+
+[node name="Bed2" parent="." instance=ExtResource("8_s38lb")]
+position = Vector2(3132.67, 663.333)
+checkpoint = "Level1Checkpoint2"
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn", "Castle"]]
 [connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn", "Church"]]

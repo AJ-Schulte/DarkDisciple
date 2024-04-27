@@ -104,7 +104,10 @@ func _on_goto_room(scene:PackedScene, location):
 	$Levels.call_deferred("remove_child", old_level)
 	
 	get_tree().paused=false
-	
+
+func checkpoint_entered(checkpoint : String):
+	$Player.currentCheckpoint = checkpoint
+
 func _on_goto_main():
 	get_tree().paused=true
 	emit_signal("end_game")

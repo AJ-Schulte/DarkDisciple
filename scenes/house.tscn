@@ -4703,6 +4703,7 @@ layer_2/tile_data = PackedInt32Array(1376272, 393219, 10, 1441808, 393219, 11, 1
 
 [node name="Bed" parent="." instance=ExtResource("6_vt4ox")]
 position = Vector2(53, 59)
+checkpoint = "House Checkpoint"
 
 [node name="TransitionArea" type="Area2D" parent="."]
 position = Vector2(273, 373)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh2nvhk76ianb"]
+[gd_scene load_steps=7 format=3 uid="uid://dh2nvhk76ianb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_3cnvw"]
 [ext_resource type="Texture2D" uid="uid://ckgmu5ct0d8st" path="res://assets/Tiles/WallSet.png" id="3_lhjiy"]
+[ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="3_myoad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0jo6"]
 texture = ExtResource("3_lhjiy")
@@ -98,5 +99,17 @@ position = Vector2(26.6667, 5.33333)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionArea"]
 position = Vector2(21.6667, 2.66667)
 shape = SubResource("RectangleShape2D_4rg6i")
+
+[node name="Bed" parent="." instance=ExtResource("3_myoad")]
+position = Vector2(2064, 85.3333)
+checkpoint = "Level3Checkpoint1"
+
+[node name="Bed2" parent="." instance=ExtResource("3_myoad")]
+position = Vector2(1285.33, 933.333)
+checkpoint = "Level3Checkpoint2"
+
+[node name="Bed3" parent="." instance=ExtResource("3_myoad")]
+position = Vector2(730.667, 416)
+checkpoint = "Level3Checkpoint3"
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/final_boss_area.tscn", "Final Boss Area"]]

@@ -3,7 +3,7 @@ var health = 100
 var playerinAttZone = false
 var player = null
 var playerChase = false
-const speed = 70
+const speed = 100
 var isAttacking = false
 var damagecooldown = true
 var attackcooldown = true
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	
 	if softcollision.is_colliding():
 		position += softcollision.get_push_vector() * delta * 1000
-	move_and_slide()
+	
 
 
 func _on_detection_area_body_entered(body):
@@ -78,10 +78,11 @@ func attackcheck():
 			attackcooldown = false
 			$AnimatedSprite2D.play("attack")
 			isAttacking = true
+			emit_signal("skeletonDamage")
 			$attack_cooldown.start()
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable
-			emit_signal("skeletonDamage")
+			
 
 func enemy():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8gp4yhiw6pxq"]
+[gd_scene load_steps=28 format=3 uid="uid://8gp4yhiw6pxq"]
 
 [ext_resource type="PackedScene" uid="uid://cd7hvajdquh6b" path="res://scenes/Enemies/baseEnemy.tscn" id="1_tsyuo"]
 [ext_resource type="Script" path="res://scenes/Enemies/skeleton.gd" id="2_4bojd"]
@@ -22,6 +22,14 @@ region = Rect2(900, 0, 150, 150)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fcej"]
 atlas = ExtResource("2_wi3np")
 region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uh3f"]
+atlas = ExtResource("2_wi3np")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgp25"]
+atlas = ExtResource("2_wi3np")
+region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3anh"]
 atlas = ExtResource("4_wob4r")
@@ -81,6 +89,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fcej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uh3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgp25")
 }],
 "loop": false,
 "name": &"attack",
@@ -147,7 +161,7 @@ script = ExtResource("2_4bojd")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_kpv2u")
 animation = &"attack"
-frame = 1
+frame = 5
 frame_progress = 1.0
 
 [node name="detection_area" parent="." index="1"]
@@ -161,7 +175,7 @@ shape = SubResource("CircleShape2D_55tnn")
 position = Vector2(5, -5)
 scale = Vector2(0.90354, 0.935035)
 collision_layer = 4
-collision_mask = 7
+collision_mask = 2
 
 [node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
 position = Vector2(-6.14827, -3.05923)
@@ -170,7 +184,7 @@ shape = SubResource("CircleShape2D_q40h6")
 debug_color = Color(0.694118, 0.45098, 0.54902, 0.419608)
 
 [node name="attack_cooldown" parent="." index="4"]
-wait_time = 0.546
+wait_time = 2.026
 
 [node name="SoftCollision" parent="." index="5"]
 position = Vector2(22, 41)

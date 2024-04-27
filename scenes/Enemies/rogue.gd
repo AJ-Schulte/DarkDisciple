@@ -11,7 +11,7 @@ var attackcooldown = true
 signal doDamage
 
 func _physics_process(delta):
-	
+	attackcheck()
 	dealwithDamage()
 	if playerChase==true and isAttacking ==false and playerinAttZone==false:
 		position += (player.position - position)/speed
@@ -25,14 +25,7 @@ func _physics_process(delta):
 		if playerChase==false and isAttacking ==false and playerinAttZone==false:
 			$AnimatedSprite2D.play("idle")
 	
-	if playerinAttZone ==true and isAttacking ==false and attackcooldown==true:
-			attackcooldown = false
-			$AnimatedSprite2D.play("attack")
-			isAttacking = true
-			$attackcooldown.start()
-		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
-		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable
-			emit_signal("doDamage")
+	
 			
 	if softcollision.is_colliding():
 		position += softcollision.get_push_vector() * delta * 1000
@@ -103,3 +96,11 @@ func _on_damagecooldown_timeout():
 
 func _on_attackcooldown_timeout():
 	attackcooldown = true # Replace with function body.
+
+func attackcheck():
+	if playerinAttZone ==true and isAttacking ==false and attackcooldown==true:
+		attackcooldown = false
+		$AnimatedSprite2D.play("attack")
+		isAttacking = true
+		$attackcooldown.start()
+		emit_signal("doDamage")

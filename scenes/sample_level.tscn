@@ -2938,7 +2938,6 @@ position = Vector2(171, 445)
 position = Vector2(874, 246)
 
 [node name="skeleton" parent="." instance=ExtResource("8_6dx36")]
-position = Vector2(1518, 449)
 
 [connection signal="doDamage" from="enemy" to="Player" method="_on_enemy_do_damage"]
 [connection signal="goblinDamage" from="goblin" to="Player" method="_on_goblin_goblin_damage"]

@@ -7,6 +7,7 @@ const speed = 70
 var isAttacking = false
 var damagecooldown = true
 var attackcooldown = true
+var isAlive = true
 @onready var softcollision = $SoftCollision
 signal goblinDamage
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -74,8 +75,9 @@ func dealwithDamage():
 			print("Goblin Health: ", health)
 			$damage_cooldown.start()
 			
-		if health <= 0:
-			self.queue_free()
+		if health <= 0 and isAlive:
+			$AnimatedSprite2D.play("death")
+			isAlive = false
 		
 
 
@@ -83,8 +85,13 @@ func dealwithDamage():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false # Replace with function body.
+		$attack_cooldown.start()
 		if playerinAttZone:
 			emit_signal("goblinDamage")
+	
+	if $AnimatedSprite2D.animation == "death":
+		isAlive = false
+		self.queue_free()
 func enemy():
 	pass
 
@@ -105,7 +112,7 @@ func attackcheck():
 		attackcooldown = false
 		$AnimatedSprite2D.play("attack")
 		isAttacking = true
-		$attack_cooldown.start()
+		
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable
 		

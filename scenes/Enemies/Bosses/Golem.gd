@@ -57,7 +57,7 @@ func _on_enemy_hitbox_body_entered(body):
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
 		playerinAttZone = false
-		isAttacking = false
+		
 	
 	
 func dealwithDamage():
@@ -79,6 +79,7 @@ func dealwithDamage():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false
+		$attack_cooldown.start()
 		if playerinAttZone:
 			emit_signal("GolemDoDamage")
 	if $AnimatedSprite2D.animation == "death":

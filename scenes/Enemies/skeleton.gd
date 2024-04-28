@@ -69,6 +69,7 @@ func _on_attack_cooldown_timeout():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false # Replace with function body. # Replace with function body.
+		$attack_cooldown.start()
 		if playerinAttZone:
 			emit_signal("skeletonDamage")
 	if $AnimatedSprite2D.animation == "death":
@@ -79,7 +80,7 @@ func attackcheck():
 			attackcooldown = false
 			$AnimatedSprite2D.play("attack")
 			isAttacking = true
-			$attack_cooldown.start()
+			
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable
 			

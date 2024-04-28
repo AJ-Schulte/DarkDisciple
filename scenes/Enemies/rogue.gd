@@ -14,7 +14,7 @@ signal doDamage
 func _physics_process(delta):
 	attackcheck()
 	dealwithDamage()
-	if playerChase==true and isAttacking ==false and playerinAttZone==false:
+	if playerChase==true and isAttacking ==false and playerinAttZone==false and isAlive:
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk")
 		
@@ -23,7 +23,7 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
-		if playerChase==false and isAttacking ==false and playerinAttZone==false:
+		if playerChase==false and isAttacking ==false and playerinAttZone==false and isAlive:
 			$AnimatedSprite2D.play("idle")
 	
 	
@@ -76,7 +76,8 @@ func dealwithDamage():
 			$damagecooldown.start()
 			
 		if health <= 0 and isAlive:
-			self.queue_free()
+			$AnimatedSprite2D.play("death")
+			isAlive = false
 		
 
 
@@ -88,8 +89,12 @@ func dealwithDamage():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false
+		$attackcooldown.start()
 		if playerinAttZone:
 			emit_signal("doDamage")
+	if $AnimatedSprite2D.animation == "death":
+		isAlive = false
+		self.queue_free()
 	
 
 
@@ -102,7 +107,7 @@ func _on_attackcooldown_timeout():
 	attackcooldown = true # Replace with function body.
 
 func attackcheck():
-	if playerinAttZone ==true and isAttacking ==false and attackcooldown==true:
+	if playerinAttZone ==true and isAttacking ==false and attackcooldown==true and isAlive:
 		attackcooldown = false
 		$AnimatedSprite2D.play("attack")
 		isAttacking = true

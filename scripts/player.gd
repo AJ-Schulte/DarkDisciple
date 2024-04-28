@@ -185,6 +185,8 @@ func _on_golem_golem_do_damage():
 			$CanvasLayer.take_damage(50)
 			print("Health not deflected: ",health)
 			player_damaged()
+			
+			
 		elif(global.isDeflecting):
 			deflectColor()
 		enemyCooldown = false
@@ -211,8 +213,19 @@ func _ready():
 	#worldcamera = worldscene.get_node("WorldCamera")
 	#playerCam = get_node("Camera2D")
 	#playerCam.transform = worldcamera.global_transform # Replace with function body. # Replace with function body.
-	print("ready")
+	pass
 
 
-func _on_character_body_2d_goblin_damage():
-	pass # Replace with function body.
+
+func _on_swordsman_swordsman_damage():
+	if enemyinRange and enemyCooldown == true:
+		if global.isDeflecting == false:
+			print("Health: ",health)
+			health -= 30
+			print("Health not deflected: ",health)
+			player_damaged()
+		elif(global.isDeflecting):
+			deflectColor()
+		enemyCooldown = false
+		$attackcooldown.start()
+		print(health) # Replace with function body. # Replace with function body. # Replace with function body.

@@ -142,7 +142,7 @@ radius = 29.3333
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dbuy2"]
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="rogue" type="CharacterBody2D"]
 collision_layer = 6
 collision_mask = 15
 script = ExtResource("1_3pv2d")

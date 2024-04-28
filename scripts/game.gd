@@ -84,14 +84,13 @@ func _on_goto_room(scene:PackedScene, location):
 			player.set_position(Vector2(5944, 2112))
 		call_deferred('setDamage')
 	elif(location == 'Colosseum'):
-		player.set_rm("null")
-		player.set_rm("root/Main/Game/Levels/Colosseum/Camera2D")
+		player.set_rm("/root/Main/Game/Levels/Colosseum/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0
-		new_level.get_node("Camera2D").limit_right = 6800
+		new_level.get_node("Camera2D").limit_right = 6760
 		new_level.get_node("Camera2D").limit_top = 0
-		new_level.get_node("Camera2D").limit_bottom = 4560
-		new_level.get_node("Camera2D").set_zoom(Vector2(0.4, 0.3))
-		player.set_position(Vector2(4560,3968))
+		new_level.get_node("Camera2D").limit_bottom = 4904
+		new_level.get_node("Camera2D").set_zoom(Vector2(0.5, 0.5))
+		player.set_position(Vector2(3728,3984))
 		player.set_scale(Vector2(3,3))
 	elif(location == 'House'):
 		player.set_rm("/root/Main/Game/Levels/House/Camera2D")

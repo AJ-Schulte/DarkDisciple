@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://h6xkobhkkaei"]
+[gd_scene load_steps=4 format=3 uid="uid://h6xkobhkkaei"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ap32t"]
 [ext_resource type="Texture2D" uid="uid://cakqqmf4thscm" path="res://assets/Sprites/DarkDisciple_Title.png" id="2_5t6pe"]
+[ext_resource type="AudioStream" uid="uid://s2bx4p1nneen" path="res://assets/sounds/horror-background-atmosphere-6-199279.mp3" id="3_3sgyq"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ap32t")
@@ -62,6 +63,10 @@ flat = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3sgyq")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -11,7 +11,23 @@ func _on_start_game_pressed():
 	$VBoxContainer/StartGame.disabled = true 
 	$VBoxContainer/Quit.disabled = true
 	$VBoxContainer/CreditsButton.disabled = true 
+	game_world.deathScreen.connect(Callable(self, "open_death_screen"))
+
+func open_death_screen():
+	game_world.queue_free()
+	get_tree().paused = false
 	
+	var deathScreen = load("res://scenes/death_screen.tscn").instantiate()
+	add_child(deathScreen)
+	deathScreen.restart.connect(Callable(self, "restart"))
+	print("restart signal connected")
+
+func restart():
+	print("restart")
+	game_world=load(game_scene).instantiate()
+	add_child(game_world)
+	game_world.deathScreen.connect(Callable(self, "open_death_screen"))
+	remove_child(get_node("death screen"))
 
 func open_main_menu():
 	

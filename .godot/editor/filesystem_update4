@@ -1,1 +1,9 @@
 res://scenes/death_screen.tscn
+res://scenes/main.tscn
+res://scenes/victory_screen.tscn
+res://scripts/game.gd
+res://scenes/game.tscn
+res://scenes/player.tscn
+res://scripts/player.gd
+res://scripts/main.gd
+res://scripts/death_screen.gd

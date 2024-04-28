@@ -1,13 +1,16 @@
 extends Node2D
 
 @export var start_scene = "res://scenes/level_1.tscn"
-var current_level:Node2D
-var old_level:Node2D
+var current_level:Node
+var old_level:Node
 var player:Node2D
 var remoteTransform: Node2D
 var goblins = 5
 var skeleton = 5
 var rogue = 5
+
+signal deathScreen
+
 #This runs as soon as an instance of "game.tscn" enters the scene tree, which means whenever you add it with "add_child()"
 func _ready():
 	#This is how we enter the first scene. It will be loaded and added as soon as we start the game.
@@ -26,8 +29,13 @@ func _ready():
 	current_level.goto_main.connect(_on_goto_main)
 	player.set_position(Vector2(522,364))
 	player.set_rm("/root/Main/Game/Levels/Level 1/Camera2D")
+	player.playerDeath.connect(Callable(self, "moveToDeath"))
 	call_deferred('setDamage')
 	
+
+func moveToDeath():
+	get_tree().paused = true
+	emit_signal("deathScreen")
 
 func setDamage():
 	if(current_level.get_node("enemy") != null):
@@ -37,6 +45,9 @@ func setDamage():
 		current_level.get_node("goblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("goblin3").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("goblin4").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
+	if(current_level.get_node("cgoblin") != null):
+		current_level.get_node("cgoblin").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
+		current_level.get_node("cgoblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 	if(current_level.get_node("Golem") != null):
 		current_level.get_node("Golem").GolemDoDamage.connect(Callable(player, "_on_golem_golem_do_damage"))
 	if(current_level.get_node("Skeleton") != null):

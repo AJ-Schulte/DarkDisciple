@@ -12,6 +12,7 @@ var worldcamera =Node2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal playerDeath
 
 	
 	
@@ -23,6 +24,7 @@ func _physics_process(delta):
 		health = 0
 		$AnimatedSprite2D.play("death")
 		print("player death") #End Screend
+		emit_signal("playerDeath")
 		return
 		
 	if not is_on_floor():
@@ -84,7 +86,6 @@ func _on_animated_sprite_2d_animation_finished():
 		global.isDeflecting = false
 	elif $AnimatedSprite2D.animation == "death":
 		self.queue_free()
-		emit_signal("playerDeath")
 		#change scene
 		
 	

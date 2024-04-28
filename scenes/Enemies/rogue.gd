@@ -7,6 +7,7 @@ var player = null
 var isAttacking = false
 var damagecooldown = true
 var attackcooldown = true
+var isAlive = true
 @onready var softcollision = $SoftCollision
 signal doDamage
 
@@ -70,9 +71,11 @@ func dealwithDamage():
 			health = health - 20
 			damagecooldown = false
 			print("Rogue Health: ", health)
+			$AnimatedSprite2D.modulate = Color(1,0,0)
+			$hit.start()
 			$damagecooldown.start()
 			
-		if health <= 0:
+		if health <= 0 and isAlive:
 			self.queue_free()
 		
 
@@ -85,7 +88,8 @@ func dealwithDamage():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false
-	
+		if playerinAttZone:
+			emit_signal("doDamage")
 	
 
 
@@ -103,4 +107,8 @@ func attackcheck():
 		$AnimatedSprite2D.play("attack")
 		isAttacking = true
 		$attackcooldown.start()
-		emit_signal("doDamage")
+		
+
+
+func _on_hit_timeout():
+	$AnimatedSprite2D.modulate = Color(1,1,1) # Replace with function body.

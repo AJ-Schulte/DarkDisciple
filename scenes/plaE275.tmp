@@ -260,11 +260,11 @@ debug_color = Color(0.878431, 0.333333, 0.231373, 0.419608)
 [node name="attackcooldown" type="Timer" parent="."]
 
 [node name="deflectcooldown" type="Timer" parent="."]
-wait_time = 0.404
 
 [node name="damaged" type="Timer" parent="."]
 
 [node name="deflectFrames" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="perfectDeflect" type="Timer" parent="."]
 

@@ -16,7 +16,7 @@ func _physics_process(delta):
 	
 	dealwithDamage()
 	attackcheck()
-	if playerChase==true and isAttacking ==false and playerinAttZone==false:
+	if playerChase==true and isAttacking ==false and playerinAttZone==false and isAlive:
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk")
 		
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
-		if playerChase==false and isAttacking ==false and playerinAttZone==false:
+		if playerChase==false and isAttacking ==false and isAlive:
 			$AnimatedSprite2D.play("idle")
 	
 	
@@ -73,6 +73,7 @@ func dealwithDamage():
 	if health <= 0 and isAlive == true:
 		$AnimatedSprite2D.play("death")
 		isAlive = false
+		global.golemDead = true
 		
 
 func _on_animated_sprite_2d_animation_finished():
@@ -82,10 +83,11 @@ func _on_animated_sprite_2d_animation_finished():
 			emit_signal("GolemDoDamage")
 	if $AnimatedSprite2D.animation == "death":
 		self.queue_free()
+		isAlive = false
 		
 	
 func attackcheck():
-	if playerinAttZone ==true and isAttacking ==false and attackcooldown==true:
+	if playerinAttZone ==true and isAttacking ==false and attackcooldown==true and isAlive:
 		attackcooldown = false
 		$AnimatedSprite2D.play("attack")
 		isAttacking = true

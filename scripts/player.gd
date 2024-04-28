@@ -1,18 +1,22 @@
 extends CharacterBody2D
-@export var health = 100;
+@export var health = global.playerHealth;
 @export var isAttacking = false;
 @export var SPEED = 300.0
 var enemyinRange = false
 var enemyCooldown = true
 var deflectCooldown = true
-
-
+@export var worldscene ="res://scenes://game.tscn"
+var current_level:Node2D
+var playerCam = Camera2D
+var worldcamera =Node2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+	
+	
+	
 func _physics_process(delta):
-	#enemy_attack()
 	if health <= 0 and global.isAlive:
 		global.isAlive = false
 		print(global.isAlive)
@@ -112,7 +116,7 @@ func _on_enemy_do_damage():
 	
 	if enemyinRange and enemyCooldown == true:
 		if global.isDeflecting == false:
-			print("Health: ",health)
+			print("Health: ",health)			
 			health -= 20
 			print("Health not deflected: ",health)
 			player_damaged()
@@ -125,8 +129,7 @@ func _on_enemy_do_damage():
 
 func _on_deflectcooldown_timeout():
 	deflectCooldown = true # Replace with function body.
-	global.isDeflecting =false
-
+	
 
 
 
@@ -191,7 +194,21 @@ func _on_deflect_frames_timeout():
 	$deflectcooldown.start()
 
 func deflectColor():
-	$AnimatedSprite2D.modulate = Color(0,1,0)
+	$AnimatedSprite2D.modulate = Color(0,1,0,0.5)
 	$perfectDeflect.start()
 func _on_perfect_deflect_timeout():
 	$AnimatedSprite2D.modulate = Color(1,1,1) # Replace with function body.
+
+
+
+
+func _ready():
+	
+	#worldcamera = worldscene.get_node("WorldCamera")
+	#playerCam = get_node("Camera2D")
+	#playerCam.transform = worldcamera.global_transform # Replace with function body. # Replace with function body.
+	print("ready")
+
+
+func _on_character_body_2d_goblin_damage():
+	pass # Replace with function body.

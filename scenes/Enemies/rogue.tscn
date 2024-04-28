@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjeorf2jymc0"]
+[gd_scene load_steps=25 format=3 uid="uid://cjeorf2jymc0"]
 
 [ext_resource type="Script" path="res://scenes/Enemies/rogue.gd" id="1_3pv2d"]
 [ext_resource type="Texture2D" uid="uid://dl2jjmcikqb6e" path="res://assets/Enemies/Rogue/Fullmain (1).png" id="1_vr532"]
+[ext_resource type="Texture2D" uid="uid://bksl4y6e3iuch" path="res://assets/Enemies/Rogue/Soul_death.png" id="3_6dwdf"]
 [ext_resource type="PackedScene" uid="uid://b8s5vi82e55x7" path="res://soft_collision.tscn" id="3_v38n3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8s56"]
@@ -23,6 +24,18 @@ region = Rect2(250, 185, 50, 37)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i6qn0"]
 atlas = ExtResource("1_vr532")
 region = Rect2(300, 185, 50, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x2pk"]
+atlas = ExtResource("3_6dwdf")
+region = Rect2(0, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p4f8"]
+atlas = ExtResource("3_6dwdf")
+region = Rect2(0, 384, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxv4e"]
+atlas = ExtResource("3_6dwdf")
+region = Rect2(0, 480, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vyd56"]
 atlas = ExtResource("1_vr532")
@@ -76,6 +89,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2x2pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p4f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxv4e")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vyd56")
 }, {
 "duration": 1.0,
@@ -123,10 +150,12 @@ script = ExtResource("1_3pv2d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2.003)
 sprite_frames = SubResource("SpriteFrames_rr2gn")
-animation = &"attack"
+animation = &"death"
+frame = 2
+frame_progress = 1.0
 
 [node name="detection_area" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
@@ -155,6 +184,7 @@ debug_color = Color(0.87451, 0.317647, 0.360784, 0.419608)
 [node name="damagecooldown" type="Timer" parent="."]
 
 [node name="attackcooldown" type="Timer" parent="."]
+wait_time = 2.026
 
 [node name="SoftCollision" parent="." instance=ExtResource("3_v38n3")]
 visible = false
@@ -164,6 +194,8 @@ scale = Vector2(0.761374, 0.80575)
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
 shape = SubResource("CircleShape2D_dbuy2")
 
+[node name="hit" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
@@ -171,5 +203,6 @@ shape = SubResource("CircleShape2D_dbuy2")
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="damagecooldown" to="." method="_on_damagecooldown_timeout"]
 [connection signal="timeout" from="attackcooldown" to="." method="_on_attackcooldown_timeout"]
+[connection signal="timeout" from="hit" to="." method="_on_hit_timeout"]
 
 [editable path="SoftCollision"]

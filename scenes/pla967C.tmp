@@ -260,11 +260,11 @@ debug_color = Color(0.878431, 0.333333, 0.231373, 0.419608)
 [node name="attackcooldown" type="Timer" parent="."]
 
 [node name="deflectcooldown" type="Timer" parent="."]
-wait_time = 0.404
 
 [node name="damaged" type="Timer" parent="."]
 
 [node name="deflectFrames" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="perfectDeflect" type="Timer" parent="."]
 
@@ -274,6 +274,7 @@ remote_path = NodePath("../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="ready" from="." to="." method="_ready"]
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

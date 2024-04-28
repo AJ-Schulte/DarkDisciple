@@ -83,7 +83,8 @@ func dealwithDamage():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false # Replace with function body.
-
+		if playerinAttZone:
+			emit_signal("goblinDamage")
 func enemy():
 	pass
 
@@ -107,7 +108,7 @@ func attackcheck():
 		$attack_cooldown.start()
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable
-		emit_signal("goblinDamage")
+		
 
 
 func _on_hit_timeout():

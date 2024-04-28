@@ -69,7 +69,8 @@ func _on_attack_cooldown_timeout():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false # Replace with function body. # Replace with function body.
-		
+		if playerinAttZone:
+			emit_signal("skeletonDamage")
 	if $AnimatedSprite2D.animation == "death":
 		self.queue_free()
 
@@ -78,7 +79,6 @@ func attackcheck():
 			attackcooldown = false
 			$AnimatedSprite2D.play("attack")
 			isAttacking = true
-			emit_signal("skeletonDamage")
 			$attack_cooldown.start()
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable

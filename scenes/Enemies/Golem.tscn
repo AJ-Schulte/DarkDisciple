@@ -181,7 +181,7 @@ frame_progress = 1.0
 
 [node name="detection_area" parent="." index="1"]
 scale = Vector2(0.760001, 0.56)
-collision_mask = 7
+collision_mask = 6
 
 [node name="CollisionShape2D" parent="detection_area" index="0"]
 scale = Vector2(49.5954, -53.5084)

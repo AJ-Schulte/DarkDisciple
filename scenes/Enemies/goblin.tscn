@@ -107,13 +107,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vrbrf"]
 
-[node name="CharacterBody2D" instance=ExtResource("1_315n6")]
+[node name="goblin" instance=ExtResource("1_315n6")]
 script = ExtResource("2_muatk")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_sa8du")
-animation = &"idle"
+animation = &"walk"
 
 [node name="detection_area" parent="." index="1"]
 scale = Vector2(1.24, 1.44948)
@@ -133,7 +133,8 @@ scale = Vector2(3.8, 3.16)
 shape = SubResource("CircleShape2D_tuiqn")
 
 [node name="hitbox" parent="." index="6"]
-position = Vector2(-5, 2)
+position = Vector2(3, 7)
+scale = Vector2(1.37379, 1.18804)
 shape = SubResource("CapsuleShape2D_vrbrf")
 
 [node name="hit" type="Timer" parent="." index="7"]

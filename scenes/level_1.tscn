@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpwmknmfd3cnx"]
+[gd_scene load_steps=18 format=3 uid="uid://bpwmknmfd3cnx"]
 
 [ext_resource type="Texture2D" uid="uid://dd2hnhsds4oh3" path="res://assets/Tiles/dead_tree.png" id="1_avntv"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="1_f3aou"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="6_7okav"]
 [ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="8_s38lb"]
 [ext_resource type="PackedScene" uid="uid://cjeorf2jymc0" path="res://scenes/Enemies/rogue.tscn" id="9_pdq2w"]
-[ext_resource type="PackedScene" uid="uid://cflpuhqke04a5" path="res://scenes/player.tscn" id="10_h46j8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrib"]
 size = Vector2(476.3, 3)
@@ -3832,12 +3831,10 @@ collision_layer = 7
 collision_layer = 2
 collision_mask = 10
 
-[node name="Player" parent="." instance=ExtResource("10_h46j8")]
-position = Vector2(522.667, 364)
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn", "Castle"]]
 [connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn", "Church"]]
-[connection signal="doDamage" from="enemy" to="Player" method="_on_enemy_do_damage"]
 
 [editable path="enemy"]
 [editable path="enemy/SoftCollision"]

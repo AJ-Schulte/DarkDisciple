@@ -269,9 +269,6 @@ wait_time = 0.404
 [node name="perfectDeflect" type="Timer" parent="."]
 
 [node name="rm" type="RemoteTransform2D" parent="."]
-remote_path = NodePath("../Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="ready" from="." to="." method="_ready"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

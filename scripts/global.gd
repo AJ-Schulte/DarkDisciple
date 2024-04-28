@@ -7,3 +7,4 @@ var isDeflecting = false
 var isAlive = true
 var golemDead = false
 var swordsmanDead = false
+var currentCheckpoint = "Level1Checkpoint1"

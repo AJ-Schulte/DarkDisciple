@@ -98,3 +98,5 @@ position = Vector2(1024, 1111)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitBlock"]
 position = Vector2(1.5, -2)
 shape = SubResource("RectangleShape2D_leqt3")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -109,7 +109,8 @@ func _on_attackcooldown_timeout():
 	enemyCooldown = true # Replace with function body.
 
 
-
+func set_rm(remote_path : String):
+	$rm.remote_path = remote_path
 
 
 func _on_enemy_do_damage():

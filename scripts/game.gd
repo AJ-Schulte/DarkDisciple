@@ -11,16 +11,28 @@ func _ready():
 	#	You can change the starting scene by setting a different scene file in the editor.
 	
 	current_level=load(start_scene).instantiate()
+	current_level.add_child(load("res://scenes/player.tscn").instantiate())
 	player = current_level.get_node("Player")
 	
 	$Levels.add_child(current_level)
-	$WorldCamera.limit_left =0
-	$WorldCamera.limit_right = 6888
-	$WorldCamera.limit_top =0
-	$WorldCamera.limit_bottom = 2952
+	$Levels/"Level 1"/Camera2D.limit_left =0
+	$Levels/"Level 1"/Camera2D.limit_right = 6888
+	$Levels/"Level 1"/Camera2D.limit_top =0
+	$Levels/"Level 1"/Camera2D.limit_bottom = 2952
 	current_level.goto_room.connect(_on_goto_room)
 	current_level.goto_main.connect(_on_goto_main)
+	player.set_position(Vector2(522,364))
+	player.set_rm("/root/Main/Game/Levels/Level 1/Camera2D")
+	call_deferred('setDamage')
 	
+
+func setDamage():
+	if(current_level.get_node("enemy") != null):
+		current_level.get_node("enemy").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
+	if(current_level.get_node("goblin") != null):
+		current_level.get_node("goblin").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
+	if(current_level.get_node("Golem") != null):
+		current_level.get_node("Golem").GolemDoDamage.connect(Callable(player, "_on_golem_golem_do_damage"))
 
 func _on_goto_room(scene:PackedScene, location):
 	#If we instance the new level insted of using change_scene(), we can do our setup in between. 
@@ -29,55 +41,66 @@ func _on_goto_room(scene:PackedScene, location):
 	
 	var new_level=scene.instantiate()
 	$Levels.call_deferred("add_child", new_level)
+	player.reparent(new_level)
+	
 	if(location == 'Castle'):
-		$WorldCamera.limit_left =-442
-		$WorldCamera.limit_right = 2288
-		$WorldCamera.limit_top = -265
-		$WorldCamera.limit_bottom = 1296
+		player.set_rm("/root/Main/Game/Levels/Castle/Camera2D")
+		new_level.get_node("Camera2D").limit_left =-442
+		new_level.get_node("Camera2D").limit_right = 2288
+		new_level.get_node("Camera2D").limit_top = -265
+		new_level.get_node("Camera2D").limit_bottom = 1296
 		player.set_position(Vector2(900,900))
 		player.set_scale(Vector2(1, 1))
+		call_deferred('setDamage')
 	elif (location == 'Church'):
-		$WorldCamera.limit_left =0
-		$WorldCamera.limit_right = 3792
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 2570
-		$WorldCamera.set_zoom(Vector2(0.8, 0.8))
+		player.set_rm("/root/Main/Game/Levels/Church/Camera2D")
+		new_level.get_node("Camera2D").limit_left =0
+		new_level.get_node("Camera2D").limit_right = 3792
+		new_level.get_node("Camera2D").limit_top = 0
+		new_level.get_node("Camera2D").limit_bottom = 2570
+		new_level.get_node("Camera2D").set_zoom(Vector2(0.8, 0.8))
 		player.set_position(Vector2(2300,2100))
 		player.set_scale(Vector2(2, 2))
+		call_deferred('setDamage')
 	elif(location == 'Level 1'):
-		$WorldCamera.limit_left =0
-		$WorldCamera.limit_right = 6888
-		$WorldCamera.limit_top =0
-		$WorldCamera.limit_bottom = 2952
-		$WorldCamera.set_zoom(Vector2(1,1))
-		player.set_scale(Vector2(1.3, 1.3))
+		player.set_rm("/root/Main/Game/Levels/Level 1/Camera2D")
+		new_level.get_node("Camera2D").limit_left =0
+		new_level.get_node("Camera2D").limit_right = 6888
+		new_level.get_node("Camera2D").limit_top =0
+		new_level.get_node("Camera2D").limit_bottom = 2952
+		new_level.get_node("Camera2D").set_zoom(Vector2(1,1))
+		player.set_scale(Vector2(1, 1))
 		if(current_level == $Levels/Castle):
-			player.set_position(Vector2(784,460))
+			player.set_position(Vector2(522,364))
 		elif(current_level == $Levels/Church):
 			player.set_position(Vector2(5944, 2112))
+		call_deferred('setDamage')
 	elif(location == 'Colosseum'):
-		$WorldCamera.limit_left = 0
-		$WorldCamera.limit_right = 2816
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 2560
-		$WorldCamera.set_zoom(Vector2(0.8, 0.8))
+		player.set_rm("root/Main/Game/Levels/Colosseum/Camera2D")
+		new_level.get_node("Camera2D").limit_left = 0
+		new_level.get_node("Camera2D").limit_right = 2816
+		new_level.get_node("Camera2D").limit_top = 0
+		new_level.get_node("Camera2D").limit_bottom = 2560
+		new_level.get_node("Camera2D").set_zoom(Vector2(0.8, 0.8))
 		player.set_position(Vector2(1696,2112))
 		player.set_scale(Vector2(1.5,1.5))
 	elif(location == 'House'):
-		$WorldCamera.limit_left = 0
-		$WorldCamera.limit_right = 576
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 383
-		$WorldCamera.set_zoom(Vector2(2,2))
+		player.set_rm("/root/Main/Game/Levels/House/Camera2D")
+		new_level.get_node("Camera2D").limit_left = 0
+		new_level.get_node("Camera2D").limit_right = 576
+		new_level.get_node("Camera2D").limit_top = 0
+		new_level.get_node("Camera2D").limit_bottom = 383
+		new_level.get_node("Camera2D").set_zoom(Vector2(2,2))
 		player.set_position(Vector2(272, 296))
 		player.set_scale(Vector2(0.8,0.8))
 		player.SPEED = 160.0
 	elif(location == 'Level 2'):
-		$WorldCamera.limit_left = -1035
-		$WorldCamera.limit_right = 8950.5
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 5255
-		$WorldCamera.set_zoom(Vector2(1,1))
+		player.set_rm("/root/Main/Game/Levels/Level 2/Camera2D")
+		new_level.get_node("Camera2D").limit_left = -1035
+		new_level.get_node("Camera2D").limit_right = 8950.5
+		new_level.get_node("Camera2D").limit_top = 0
+		new_level.get_node("Camera2D").limit_bottom = 5255
+		new_level.get_node("Camera2D").set_zoom(Vector2(1,1))
 		player.set_scale(Vector2(1.3, 1.3))
 		if(current_level == $Levels/House):
 			player.set_position(Vector2(-225,1100))
@@ -85,18 +108,20 @@ func _on_goto_room(scene:PackedScene, location):
 		elif(current_level == $Levels/Church):
 			player.set_position(Vector2(8000, 2100))
 	elif(location == 'Final Boss Area'):
-		$WorldCamera.limit_left = 0
-		$WorldCamera.limit_right = 1925
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 1296
-		$WorldCamera.set_zoom(Vector2(1.2, 1.2))
+		player.set_rm("/root/Main/Game/Levels/Final Boss Area/Camera2D")
+		new_level.get_node("Camera2D").limit_left = 0
+		new_level.get_node("Camera2D").limit_right = 1925
+		new_level.get_node("Camera2D").limit_top = 0
+		new_level.get_node("Camera2D").limit_bottom = 1296
+		new_level.get_node("Camera2D").set_zoom(Vector2(1.2, 1.2))
 		player.set_position(Vector2(1025,1060))
 	elif(location == 'Level 3'):
-		$WorldCamera.limit_left = 0
-		$WorldCamera.limit_right = 3552
-		$WorldCamera.limit_top = 0
-		$WorldCamera.limit_bottom = 2136
-		$WorldCamera.set_zoom(Vector2(1.5,1.5))
+		player.set_rm("/root/Main/Game/Levels/Level 3/Camera2D")
+		new_level.get_node("Camera2D").limit_left = 0
+		new_level.get_node("Camera2D").limit_right = 3552
+		new_level.get_node("Camera2D").limit_top = 0
+		new_level.get_node("Camera2D").limit_bottom = 2136
+		new_level.get_node("Camera2D").set_zoom(Vector2(1.5,1.5))
 		player.set_scale(Vector2(1, 1))
 		player.set_position(Vector2(2314,42))
 		
@@ -117,3 +142,6 @@ func _on_goto_main():
 	
 func _on_transition_faded_out():
 	old_level.queue_free()
+
+
+

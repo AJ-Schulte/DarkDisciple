@@ -8,9 +8,9 @@ var credits:Control
 func _on_start_game_pressed():
 	game_world=load(game_scene).instantiate()
 	add_child(game_world)
-	$StartGame.disabled = true 
-	$Quit.disabled = true
-	$CreditsButton.disabled = true 
+	$VBoxContainer/StartGame.disabled = true 
+	$VBoxContainer/Quit.disabled = true
+	$VBoxContainer/CreditsButton.disabled = true 
 	
 
 func open_main_menu():

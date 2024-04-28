@@ -4913,5 +4913,7 @@ checkpoint = "Level2Checkpoint1"
 position = Vector2(1182.67, 2768.67)
 checkpoint = "Level2Checkpoint2"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/house.tscn", "House"]]
 [connection signal="body_entered" from="TransitionArea5" to="." method="_on_transition_entered" binds= ["res://scenes/colosseum.tscn", "Colosseum"]]

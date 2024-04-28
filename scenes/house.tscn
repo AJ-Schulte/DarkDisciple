@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwnr6ru7tvxua"]
+[gd_scene load_steps=13 format=3 uid="uid://dwnr6ru7tvxua"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_esplm"]
 [ext_resource type="Texture2D" uid="uid://f5eu1oob2c2m" path="res://assets/Tiles/Dungeon_Tileset.png" id="2_j01uq"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://la46v6dkipin" path="res://assets/Tiles/Interior.png" id="4_0hrig"]
 [ext_resource type="Texture2D" uid="uid://duuhmop7y5ibi" path="res://assets/Tiles/noah_assets2.png" id="5_bp3d5"]
 [ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="6_vt4ox"]
-[ext_resource type="PackedScene" uid="uid://cflpuhqke04a5" path="res://scenes/player.tscn" id="7_3iwxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et5fn"]
 texture = ExtResource("2_j01uq")
@@ -4713,7 +4712,6 @@ position = Vector2(273, 373)
 position = Vector2(-0.5, -5)
 shape = SubResource("RectangleShape2D_shh4c")
 
-[node name="Player" parent="." instance=ExtResource("7_3iwxm")]
-position = Vector2(271, 297)
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_2.tscn", "Level 2"]]

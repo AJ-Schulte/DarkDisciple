@@ -5600,5 +5600,7 @@ scale = Vector2(5, 5)
 position = Vector2(-3.9, -4.15)
 shape = SubResource("RectangleShape2D_s1fwo")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_1.tscn", "Level 1"]]
 [connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/level_2.tscn", "Level 2"]]

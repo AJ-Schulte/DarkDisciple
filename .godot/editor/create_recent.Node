@@ -1,6 +1,7 @@
-Timer
 Camera2D
+VBoxContainer
 RemoteTransform2D
+Timer
 CollisionShape2D
 Area2D
 GPUParticles2D
@@ -11,4 +12,3 @@ CollisionPolygon2D
 Node2D
 AnimatedSprite2D
 ColorRect
-Button

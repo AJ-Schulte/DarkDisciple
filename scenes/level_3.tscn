@@ -112,4 +112,6 @@ checkpoint = "Level3Checkpoint2"
 position = Vector2(730.667, 416)
 checkpoint = "Level3Checkpoint3"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/final_boss_area.tscn", "Final Boss Area"]]

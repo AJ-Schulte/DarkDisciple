@@ -101,13 +101,13 @@ func _on_enemy_hitbox_body_exited(body):
 
 func attackcheck():
 	if playerinAttZone ==true and attackcooldown==true:
-			attackcooldown = false
-			$AnimatedSprite2D.play("attack")
-			isAttacking = true
-			$attack_cooldown.start()
+		attackcooldown = false
+		$AnimatedSprite2D.play("attack")
+		isAttacking = true
+		$attack_cooldown.start()
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = true    # disable
 		#	get_node("enemy_hitbox/CollisionShape2D").disabled = false   # enable
-			emit_signal("goblinDamage")
+		emit_signal("goblinDamage")
 
 
 func _on_hit_timeout():

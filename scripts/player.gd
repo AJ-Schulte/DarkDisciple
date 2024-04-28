@@ -163,6 +163,9 @@ func _on_skeleton_skeleton_damage():
 
 
 func _on_golem_golem_do_damage():
+	print("work")
+	print("inrange: ", enemyinRange)
+	print("cooldown: ", enemyCooldown)
 	if enemyinRange and enemyCooldown == true:
 		if global.isDeflecting == false:
 			print("Health: ",health)

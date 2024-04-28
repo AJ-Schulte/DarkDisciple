@@ -30,8 +30,8 @@ func _physics_process(delta):
 	
 	
 			
-	#if softcollision.is_colliding():
-	#	position += softcollision.get_push_vector() * delta * 1000
+	if softcollision.is_colliding():
+		position += softcollision.get_push_vector() * delta * 1000
 		
 			
 
@@ -89,7 +89,8 @@ func attackcheck():
 		isAttacking = true
 		
 		$attack_cooldown.start()
-		emit_signal("doDamage")
+		emit_signal("GolemDoDamage")
+		
 
 
 func _on_attack_cooldown_timeout():

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bidjt6b367o73" path="res://assets/Tiles/wall.png" id="4_8gobk"]
 [ext_resource type="Texture2D" uid="uid://duuhmop7y5ibi" path="res://assets/Tiles/noah_assets2.png" id="4_dep0o"]
 [ext_resource type="Texture2D" uid="uid://ciua5vnndriu4" path="res://assets/Sprites/red_orb.png" id="6_4frq7"]
-[ext_resource type="PackedScene" uid="uid://bj2ef4ib03rix" path="res://scenes/Enemies/Golem.tscn" id="7_2iw2y"]
+[ext_resource type="PackedScene" uid="uid://bj2ef4ib03rix" path="res://scenes/Enemies/Bosses/Golem.tscn" id="7_2iw2y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vlbwq"]
 texture = ExtResource("1_wlhmi")

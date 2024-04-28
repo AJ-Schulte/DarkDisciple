@@ -13,3 +13,5 @@ res://scenes/level_2.tscn
 res://scenes/level_3.tscn
 res://scenes/Enemies/skeleton.tscn
 res://scenes/Enemies/goblin.tscn
+res://scenes/Enemies/swordsman.tscn
+res://scenes/Enemies/Bosses/swordsman.gd

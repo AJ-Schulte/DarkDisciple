@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cflpuhqke04a5" path="res://scenes/player.tscn" id="4_t72mo"]
 [ext_resource type="PackedScene" uid="uid://cjeorf2jymc0" path="res://scenes/Enemies/rogue.tscn" id="5_y1sfy"]
 [ext_resource type="PackedScene" uid="uid://8gp4yhiw6pxq" path="res://scenes/Enemies/skeleton.tscn" id="8_6dx36"]
-[ext_resource type="PackedScene" uid="uid://bj2ef4ib03rix" path="res://scenes/Enemies/Golem.tscn" id="9_acjuc"]
+[ext_resource type="PackedScene" uid="uid://bj2ef4ib03rix" path="res://scenes/Enemies/Bosses/Golem.tscn" id="9_acjuc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xvku"]
 texture = ExtResource("1_jepgm")

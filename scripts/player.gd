@@ -160,3 +160,16 @@ func _on_skeleton_skeleton_damage():
 		player_damaged()
 		$attackcooldown.start()
 		print(health) # Replace with function body.
+
+
+func _on_golem_golem_do_damage():
+	if enemyinRange and enemyCooldown == true:
+		if global.isDeflecting == false:
+			print("Health: ",health)
+			health -= 50
+			print("Health not deflected: ",health)
+			
+		enemyCooldown = false
+		player_damaged()
+		$attackcooldown.start()
+		print(health) # Replace with function body. # Replace with function body.

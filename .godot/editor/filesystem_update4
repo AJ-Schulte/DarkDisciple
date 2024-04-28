@@ -11,3 +11,6 @@ res://scenes/Enemies/rogue.gd
 res://scenes/Enemies/skeleton.gd
 res://scenes/Enemies/goblin.gd
 res://scripts/global.gd
+res://scenes/Enemies/Golem.tscn
+res://scenes/Enemies/Golem.gd
+res://scenes/level_1.tscn

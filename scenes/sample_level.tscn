@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byvlarocokvxb"]
+[gd_scene load_steps=14 format=3 uid="uid://byvlarocokvxb"]
 
 [ext_resource type="Script" path="res://scenes/sample_level.gd" id="1_0dx30"]
 [ext_resource type="Texture2D" uid="uid://db1ffcygppb6p" path="res://assets/Tiles/generalTiles.png" id="1_jepgm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjeorf2jymc0" path="res://scenes/Enemies/rogue.tscn" id="5_y1sfy"]
 [ext_resource type="PackedScene" uid="uid://g1h5sg03byda" path="res://scenes/Enemies/goblin.tscn" id="7_5sm0q"]
 [ext_resource type="PackedScene" uid="uid://8gp4yhiw6pxq" path="res://scenes/Enemies/skeleton.tscn" id="8_6dx36"]
+[ext_resource type="PackedScene" uid="uid://bj2ef4ib03rix" path="res://scenes/Enemies/Golem.tscn" id="9_acjuc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xvku"]
 texture = ExtResource("1_jepgm")
@@ -2932,13 +2933,17 @@ layer_1/tile_data = PackedInt32Array(2162705, 1048578, 10, 2228241, 1048578, 11,
 position = Vector2(882, 473)
 
 [node name="enemy" parent="." instance=ExtResource("5_y1sfy")]
-position = Vector2(171, 445)
+position = Vector2(-48, 117)
 
 [node name="goblin" parent="." instance=ExtResource("7_5sm0q")]
 position = Vector2(874, 246)
 
 [node name="skeleton" parent="." instance=ExtResource("8_6dx36")]
 
+[node name="Golem" parent="." instance=ExtResource("9_acjuc")]
+position = Vector2(343, 577)
+
 [connection signal="doDamage" from="enemy" to="Player" method="_on_enemy_do_damage"]
 [connection signal="goblinDamage" from="goblin" to="Player" method="_on_goblin_goblin_damage"]
 [connection signal="skeletonDamage" from="skeleton" to="Player" method="_on_skeleton_skeleton_damage"]
+[connection signal="GolemDoDamage" from="Golem" to="Player" method="_on_golem_golem_do_damage"]

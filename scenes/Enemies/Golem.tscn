@@ -188,8 +188,8 @@ scale = Vector2(49.5954, -53.5084)
 shape = SubResource("CircleShape2D_c6v7l")
 
 [node name="enemy_hitbox" parent="." index="2"]
-position = Vector2(10, 61)
-scale = Vector2(0.783197, 0.299194)
+position = Vector2(3, 29)
+scale = Vector2(0.783197, 0.619193)
 collision_layer = 4
 collision_mask = 7
 
@@ -199,7 +199,7 @@ scale = Vector2(-6.66423, 9.41835)
 shape = SubResource("CircleShape2D_t8v3g")
 
 [node name="attack_cooldown" parent="." index="4"]
-wait_time = 2.478
+wait_time = 3.032
 
 [node name="SoftCollision" parent="." index="5"]
 position = Vector2(0, 99)

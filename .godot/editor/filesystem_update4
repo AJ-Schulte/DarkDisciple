@@ -14,3 +14,4 @@ res://scripts/global.gd
 res://scenes/Enemies/Golem.tscn
 res://scenes/Enemies/Golem.gd
 res://scenes/level_1.tscn
+res://scripts/level.gd

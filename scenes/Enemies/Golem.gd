@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var health = 100
 var playerinAttZone = false
-var speed = 100
+var speed = 150
 var playerChase = false
 var player = null
 var isAttacking = false
@@ -78,6 +78,8 @@ func dealwithDamage():
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		isAttacking = false
+		if playerinAttZone:
+			emit_signal("GolemDoDamage")
 	if $AnimatedSprite2D.animation == "death":
 		self.queue_free()
 		
@@ -89,7 +91,7 @@ func attackcheck():
 		isAttacking = true
 		
 		$attack_cooldown.start()
-		emit_signal("GolemDoDamage")
+		
 		
 
 

@@ -1,4 +1,5 @@
 Timer
+RemoteTransform2D
 CollisionShape2D
 Area2D
 GPUParticles2D
@@ -10,5 +11,4 @@ CollisionPolygon2D
 Node2D
 AnimatedSprite2D
 ColorRect
-RemoteTransform2D
 Button

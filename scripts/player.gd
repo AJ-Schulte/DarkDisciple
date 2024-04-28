@@ -60,10 +60,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("deflect") and global.isDeflecting ==false and deflectCooldown ==true and isAttacking ==false and global.isAlive:
 		global.isDeflecting = true;
-		print(global.isDeflecting)
+		print("Deflecting: ", global.isDeflecting)
 		deflectCooldown = false
 		$AnimatedSprite2D.play("deflect")	
-		$deflectcooldown.start();
+		$deflectFrames.start()
+		
 		
 	
 	move_and_slide()
@@ -115,6 +116,8 @@ func _on_enemy_do_damage():
 			health -= 20
 			print("Health not deflected: ",health)
 			player_damaged()
+		elif(global.isDeflecting):
+			deflectColor()
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health)
@@ -136,7 +139,8 @@ func _on_goblin_goblin_damage():
 			health -= 30
 			player_damaged()
 			print("Health not deflected: ",health)
-		
+		elif(global.isDeflecting):
+			deflectColor()
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health)# Replace with function body.
@@ -155,9 +159,11 @@ func _on_skeleton_skeleton_damage():
 			print("Health: ",health)
 			health -= 20
 			print("Health not deflected: ",health)
-			
+			player_damaged()
+		elif(global.isDeflecting):
+			deflectColor()
 		enemyCooldown = false
-		player_damaged()
+		
 		$attackcooldown.start()
 		print(health) # Replace with function body.
 
@@ -171,8 +177,21 @@ func _on_golem_golem_do_damage():
 			print("Health: ",health)
 			health -= 50
 			print("Health not deflected: ",health)
-			
+			player_damaged()
+		elif(global.isDeflecting):
+			deflectColor()
 		enemyCooldown = false
-		player_damaged()
 		$attackcooldown.start()
 		print(health) # Replace with function body. # Replace with function body.
+
+
+func _on_deflect_frames_timeout():
+	global.isDeflecting = false # Replace with function body.
+	print("Deflecting: ", global.isDeflecting)
+	$deflectcooldown.start()
+
+func deflectColor():
+	$AnimatedSprite2D.modulate = Color(0,1,0)
+	$perfectDeflect.start()
+func _on_perfect_deflect_timeout():
+	$AnimatedSprite2D.modulate = Color(1,1,1) # Replace with function body.

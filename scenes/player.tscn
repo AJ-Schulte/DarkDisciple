@@ -260,9 +260,13 @@ debug_color = Color(0.878431, 0.333333, 0.231373, 0.419608)
 [node name="attackcooldown" type="Timer" parent="."]
 
 [node name="deflectcooldown" type="Timer" parent="."]
-wait_time = 0.366
 
 [node name="damaged" type="Timer" parent="."]
+
+[node name="deflectFrames" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="perfectDeflect" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
@@ -271,3 +275,5 @@ wait_time = 0.366
 [connection signal="timeout" from="attackcooldown" to="." method="_on_attackcooldown_timeout"]
 [connection signal="timeout" from="deflectcooldown" to="." method="_on_deflectcooldown_timeout"]
 [connection signal="timeout" from="damaged" to="." method="_on_damaged_timeout"]
+[connection signal="timeout" from="deflectFrames" to="." method="_on_deflect_frames_timeout"]
+[connection signal="timeout" from="perfectDeflect" to="." method="_on_perfect_deflect_timeout"]

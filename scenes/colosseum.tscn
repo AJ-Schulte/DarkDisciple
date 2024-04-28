@@ -153,31 +153,27 @@ scale = Vector2(8, 8)
 texture = ExtResource("2_3sv72")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
-visible = false
 polygon = PackedVector2Array(3360, 5696, 3408, 6224, 2976, 6160, 2096, 5712, 1312, 4864, 1008, 3856, 1184, 2416, 2016, 1296, 2896, 832, 3616, 688, 4304, 608, 4352, 896, 3152, 1152, 2864, 1136, 2400, 1440, 1632, 2240, 1328, 3088, 1376, 4112, 1920, 4928, 2576, 5472)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Floor"]
-visible = false
 polygon = PackedVector2Array(4768, 544, 5920, 768, 6816, 1184, 7696, 1792, 8240, 2688, 8352, 3152, 8336, 4112, 8336, 4368, 8384, 4720, 8096, 5168, 7504, 5776, 6464, 6272, 6448, 5840, 7184, 5536, 7696, 5088, 8096, 4368, 8176, 3344, 7904, 2768, 7520, 2160, 7088, 1776, 6608, 1472, 5584, 1088, 4768, 944)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Floor"]
-visible = false
 polygon = PackedVector2Array(6096, 784, 6544, 256, 6608, -432, 6304, -1216, 5904, -1648, 5296, -2016, 3824, -1984, 3024, -1424, 2624, -672, 2720, 272, 3184, 704, 3296, 640, 2848, 112, 2912, -224, 2896, -352, 2784, -400, 2864, -832, 3088, -1312, 3696, -1776, 4048, -1920, 5232, -1872, 5616, -1696, 6080, -1232, 6384, -688, 6432, -64, 6256, -64, 6208, 64, 6368, 112, 6320, 400, 5952, 736)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-visible = false
 position = Vector2(5032, 6160)
 shape = SubResource("RectangleShape2D_65fjj")
 
-[node name="Wall" type="Sprite2D" parent="."]
+[node name="CWall" type="Sprite2D" parent="."]
 modulate = Color(0.905882, 0.654902, 0.298039, 1)
 position = Vector2(4336, 1600)
 scale = Vector2(-6.20927, 6.79036)
 texture = ExtResource("4_hckf0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+[node name="StaticBody2D" type="StaticBody2D" parent="CWall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CWall/StaticBody2D"]
 visible = false
 shape = SubResource("RectangleShape2D_7hpiv")
 

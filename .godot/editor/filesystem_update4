@@ -10,5 +10,7 @@ res://scenes/final_boss_area.tscn
 res://scenes/house.tscn
 res://scenes/level_2.tscn
 res://scenes/level_3.tscn
+res://scripts/level.gd
 res://scripts/game.gd
-res://scripts/player.gd
+res://scenes/Enemies/skeleton.tscn
+res://scenes/Enemies/goblin.tscn

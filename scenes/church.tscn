@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://lipx32dw57fu"]
+[gd_scene load_steps=15 format=3 uid="uid://lipx32dw57fu"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ds87n"]
 [ext_resource type="Texture2D" uid="uid://yyrw2421u44s" path="res://assets/Tiles/churchInteriorTileset.png" id="1_wlhmi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bidjt6b367o73" path="res://assets/Tiles/wall.png" id="4_8gobk"]
 [ext_resource type="Texture2D" uid="uid://duuhmop7y5ibi" path="res://assets/Tiles/noah_assets2.png" id="4_dep0o"]
 [ext_resource type="Texture2D" uid="uid://ciua5vnndriu4" path="res://assets/Sprites/red_orb.png" id="6_4frq7"]
+[ext_resource type="PackedScene" uid="uid://bj2ef4ib03rix" path="res://scenes/Enemies/Golem.tscn" id="7_2iw2y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vlbwq"]
 texture = ExtResource("1_wlhmi")
@@ -5602,5 +5603,21 @@ shape = SubResource("RectangleShape2D_s1fwo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Golem" parent="." instance=ExtResource("7_2iw2y")]
+position = Vector2(2275, 1233)
+scale = Vector2(2, 2)
+
+[node name="enemy_hitbox" parent="Golem" index="2"]
+position = Vector2(-15.5, 64)
+rotation = 0.510772
+scale = Vector2(0.823755, -0.582916)
+
+[node name="hitbox" parent="Golem" index="6"]
+position = Vector2(27.5, 80)
+scale = Vector2(0.645864, 0.481339)
+
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_1.tscn", "Level 1"]]
 [connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/level_2.tscn", "Level 2"]]
+
+[editable path="Golem"]
+[editable path="Golem/SoftCollision"]

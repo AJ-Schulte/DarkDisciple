@@ -5,6 +5,9 @@ var current_level:Node2D
 var old_level:Node2D
 var player:Node2D
 var remoteTransform: Node2D
+var goblins = 5
+var skeleton = 5
+var rogue = 5
 #This runs as soon as an instance of "game.tscn" enters the scene tree, which means whenever you add it with "add_child()"
 func _ready():
 	#This is how we enter the first scene. It will be loaded and added as soon as we start the game.
@@ -31,8 +34,13 @@ func setDamage():
 		current_level.get_node("enemy").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
 	if(current_level.get_node("goblin") != null):
 		current_level.get_node("goblin").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
+		current_level.get_node("goblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
+		current_level.get_node("goblin3").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
+		current_level.get_node("goblin4").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 	if(current_level.get_node("Golem") != null):
 		current_level.get_node("Golem").GolemDoDamage.connect(Callable(player, "_on_golem_golem_do_damage"))
+	if(current_level.get_node("Skeleton") != null):
+		current_level.get_node("Skeleton").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
 
 func _on_goto_room(scene:PackedScene, location):
 	#If we instance the new level insted of using change_scene(), we can do our setup in between. 
@@ -76,14 +84,15 @@ func _on_goto_room(scene:PackedScene, location):
 			player.set_position(Vector2(5944, 2112))
 		call_deferred('setDamage')
 	elif(location == 'Colosseum'):
+		player.set_rm("null")
 		player.set_rm("root/Main/Game/Levels/Colosseum/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0
-		new_level.get_node("Camera2D").limit_right = 2816
+		new_level.get_node("Camera2D").limit_right = 6800
 		new_level.get_node("Camera2D").limit_top = 0
-		new_level.get_node("Camera2D").limit_bottom = 2560
-		new_level.get_node("Camera2D").set_zoom(Vector2(0.8, 0.8))
-		player.set_position(Vector2(1696,2112))
-		player.set_scale(Vector2(1.5,1.5))
+		new_level.get_node("Camera2D").limit_bottom = 4560
+		new_level.get_node("Camera2D").set_zoom(Vector2(0.4, 0.3))
+		player.set_position(Vector2(4560,3968))
+		player.set_scale(Vector2(3,3))
 	elif(location == 'House'):
 		player.set_rm("/root/Main/Game/Levels/House/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0
@@ -94,19 +103,21 @@ func _on_goto_room(scene:PackedScene, location):
 		player.set_position(Vector2(272, 296))
 		player.set_scale(Vector2(0.8,0.8))
 		player.SPEED = 160.0
-	elif(location == 'Level 2'):
+	if(location == 'Level 2'):
+		print(player.position)
+		
 		player.set_rm("/root/Main/Game/Levels/Level 2/Camera2D")
 		new_level.get_node("Camera2D").limit_left = -1035
 		new_level.get_node("Camera2D").limit_right = 8950.5
 		new_level.get_node("Camera2D").limit_top = 0
 		new_level.get_node("Camera2D").limit_bottom = 5255
 		new_level.get_node("Camera2D").set_zoom(Vector2(1,1))
-		player.set_scale(Vector2(1.3, 1.3))
+		player.set_scale(Vector2(1, 1))
 		if(current_level == $Levels/House):
-			player.set_position(Vector2(-225,1100))
+			player.set_position(Vector2(-1526,758))
 			player.SPEED = 320.0
 		elif(current_level == $Levels/Church):
-			player.set_position(Vector2(8000, 2100))
+			player.set_position(Vector2(3950, 1408))
 	elif(location == 'Final Boss Area'):
 		player.set_rm("/root/Main/Game/Levels/Final Boss Area/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0

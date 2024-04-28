@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctdp2cndncpuu" path="res://assets/Sprites/boulder.png" id="4_jignk"]
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="6_7okav"]
 [ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="8_s38lb"]
-[ext_resource type="PackedScene" uid="uid://cjeorf2jymc0" path="res://scenes/Enemies/rogue.tscn" id="9_pdq2w"]
+[ext_resource type="PackedScene" uid="uid://g1h5sg03byda" path="res://scenes/Enemies/goblin.tscn" id="9_0dya8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrib"]
 size = Vector2(476.3, 3)
@@ -3816,25 +3816,22 @@ position = Vector2(0.666687, 0)
 shape = SubResource("RectangleShape2D_u0rf6")
 
 [node name="Bed" parent="." instance=ExtResource("8_s38lb")]
-position = Vector2(640, 444)
-checkpoint = "Level1Checkpoint1"
-
-[node name="Bed2" parent="." instance=ExtResource("8_s38lb")]
-position = Vector2(3132.67, 663.333)
+position = Vector2(4049.33, 1445.33)
 checkpoint = "Level1Checkpoint2"
-
-[node name="enemy" parent="." instance=ExtResource("9_pdq2w")]
-position = Vector2(881.333, 572)
-collision_layer = 7
-
-[node name="detection_area" parent="enemy" index="1"]
-collision_layer = 2
-collision_mask = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="goblin2" parent="." instance=ExtResource("9_0dya8")]
+position = Vector2(1872.67, 590.667)
+
+[node name="goblin" parent="." instance=ExtResource("9_0dya8")]
+position = Vector2(782, 745.333)
+
+[node name="goblin3" parent="." instance=ExtResource("9_0dya8")]
+position = Vector2(3368.67, 1502.67)
+
+[node name="goblin4" parent="." instance=ExtResource("9_0dya8")]
+position = Vector2(2912.67, 800)
+
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn", "Castle"]]
 [connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn", "Church"]]
-
-[editable path="enemy"]
-[editable path="enemy/SoftCollision"]

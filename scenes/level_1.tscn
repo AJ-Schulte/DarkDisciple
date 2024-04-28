@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpwmknmfd3cnx"]
+[gd_scene load_steps=19 format=3 uid="uid://bpwmknmfd3cnx"]
 
 [ext_resource type="Texture2D" uid="uid://dd2hnhsds4oh3" path="res://assets/Tiles/dead_tree.png" id="1_avntv"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="1_f3aou"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ob8r5eb24e1" path="res://assets/Sprites/church.png" id="6_7okav"]
 [ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="8_s38lb"]
 [ext_resource type="PackedScene" uid="uid://g1h5sg03byda" path="res://scenes/Enemies/goblin.tscn" id="9_0dya8"]
+[ext_resource type="PackedScene" uid="uid://86e4aj52q1ty" path="res://scenes/HealthHUD.tscn" id="10_c6vhr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrib"]
 size = Vector2(476.3, 3)
@@ -3832,6 +3833,8 @@ position = Vector2(3368.67, 1502.67)
 
 [node name="goblin4" parent="." instance=ExtResource("9_0dya8")]
 position = Vector2(2912.67, 800)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("10_c6vhr")]
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/castle.tscn", "Castle"]]
 [connection signal="body_entered" from="TransitionArea2" to="." method="_on_transition_entered" binds= ["res://scenes/church.tscn", "Church"]]

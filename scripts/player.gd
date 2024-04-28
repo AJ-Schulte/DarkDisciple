@@ -119,6 +119,7 @@ func _on_enemy_do_damage():
 		if global.isDeflecting == false:
 			print("Health: ",health)			
 			health -= 20
+			$CanvasLayer.take_damage(20)
 			print("Health not deflected: ",health)
 			player_damaged()
 		elif(global.isDeflecting):
@@ -141,6 +142,7 @@ func _on_goblin_goblin_damage():
 		if global.isDeflecting == false:
 			print("Health: ",health)
 			health -= 30
+			$CanvasLayer.take_damage(30)
 			player_damaged()
 			print("Health not deflected: ",health)
 		elif(global.isDeflecting):
@@ -152,7 +154,6 @@ func _on_goblin_goblin_damage():
 func player_damaged():
 	$AnimatedSprite2D.modulate = Color(1,0,0)
 	$damaged.start()
-
 func _on_damaged_timeout():
 	$AnimatedSprite2D.modulate = Color(1,1,1)
 
@@ -162,6 +163,7 @@ func _on_skeleton_skeleton_damage():
 		if global.isDeflecting == false:
 			print("Health: ",health)
 			health -= 20
+			$CanvasLayer.take_damage(20)
 			print("Health not deflected: ",health)
 			player_damaged()
 		elif(global.isDeflecting):
@@ -180,6 +182,7 @@ func _on_golem_golem_do_damage():
 		if global.isDeflecting == false:
 			print("Health: ",health)
 			health -= 50
+			$CanvasLayer.take_damage(50)
 			print("Health not deflected: ",health)
 			player_damaged()
 		elif(global.isDeflecting):

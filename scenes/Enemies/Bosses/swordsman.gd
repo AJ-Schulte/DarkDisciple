@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health = 100
+var health = 150
 var playerinAttZone = false
 var player = null
 var playerChase = false
@@ -67,20 +67,21 @@ func dealwithDamage():
 	
 	if playerinAttZone and global.isPlayerAttacking == true:
 		if damagecooldown == true:
-			health = health - 50
+			health = health - 20
 			damagecooldown = false
 			attackcooldown = false
 			$attack_cooldown.start()
-			$AnimatedSprite2D.play("idle")
+			
 			$AnimatedSprite2D.modulate = Color(1,0,0)
 			$hit.start()
 			print("Swordsman Health: ", health)
 			$damage_cooldown.start()
 			
-		if health <= 0:
-			global.swordsmanDead = true
-			emit_signal("victoryScreen")
-			self.queue_free()
+		if health <= 0 and isAlive:
+			
+			$AnimatedSprite2D.play("death")
+			isAlive = false
+			
 		
 
 
@@ -98,9 +99,11 @@ func _on_animated_sprite_2d_animation_finished():
 			emit_signal("swordsmanDamage")
 	
 	if $AnimatedSprite2D.animation == "death":
-		isAlive = false
+		global.swordsmanDead = true
 		self.queue_free()
-
+		emit_signal("victoryScreen")
+		#$screen.start()
+		
 func enemy():
 	pass
 
@@ -134,3 +137,7 @@ func attackcheck():
 
 func _on_hit_timeout():
 	$AnimatedSprite2D.modulate = Color(1,1,1) # Replace with function body.
+
+
+func _on_screen_timeout():
+	emit_signal("victoryScreen") # Replace with function body.

@@ -15,7 +15,7 @@ func _process(_delta):
 		cwall = true
 	if global.swordsmanDead == true:
 		global.swordsmanDead = false
-		get_tree().change_scene_to_file("res://scenes/victory_screen.tscn")
+		
 func _on_transition_entered(_body : PhysicsBody2D, target_scene_path:String, location_entered:String):
 	emit_signal("goto_room", load(target_scene_path), location_entered)
 

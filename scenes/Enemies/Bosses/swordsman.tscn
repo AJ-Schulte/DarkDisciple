@@ -274,11 +274,14 @@ shape = SubResource("CapsuleShape2D_oaqv4")
 wait_time = 2.0
 
 [node name="hitbox" parent="." index="6"]
-position = Vector2(-7, -5)
-scale = Vector2(6.19584, 8.08166)
+position = Vector2(-1, -2)
+scale = Vector2(4.09854, 8.08166)
 shape = SubResource("CircleShape2D_aom5e")
 
 [node name="hit" type="Timer" parent="." index="7"]
+
+[node name="screen" type="Timer" parent="." index="8"]
+wait_time = 4.538
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
@@ -288,5 +291,6 @@ shape = SubResource("CircleShape2D_aom5e")
 [connection signal="timeout" from="damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="hit" to="." method="_on_hit_timeout"]
+[connection signal="timeout" from="screen" to="." method="_on_screen_timeout"]
 
 [editable path="SoftCollision"]

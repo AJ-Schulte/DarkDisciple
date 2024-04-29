@@ -1,3 +1,4 @@
+Timer
 Control
 Node
 ColorRect
@@ -5,7 +6,6 @@ Node2D
 ProgressBar
 CanvasLayer
 AudioStreamPlayer
-Timer
 Camera2D
 VBoxContainer
 RemoteTransform2D

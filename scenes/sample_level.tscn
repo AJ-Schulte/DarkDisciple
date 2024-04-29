@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://byvlarocokvxb"]
 
-[ext_resource type="Script" path="res://scenes/sample_level.gd" id="1_0dx30"]
+[ext_resource type="Script" path="res://scripts/sample_level.gd" id="1_0dx30"]
 [ext_resource type="Texture2D" uid="uid://db1ffcygppb6p" path="res://assets/Tiles/generalTiles.png" id="1_jepgm"]
 [ext_resource type="Texture2D" uid="uid://ckgmu5ct0d8st" path="res://assets/Tiles/WallSet.png" id="2_ufv35"]
 [ext_resource type="Texture2D" uid="uid://gv5patidnpm1" path="res://assets/Tiles/BaseSet.png" id="3_eo634"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjeorf2jymc0" path="res://scenes/Enemies/rogue.tscn" id="5_y1sfy"]
 [ext_resource type="PackedScene" uid="uid://bm2m8a7rdgfgu" path="res://scenes/Enemies/Bosses/swordsman.tscn" id="7_kes2s"]
 [ext_resource type="PackedScene" uid="uid://pfhtpvnh8w4" path="res://scenes/Enemies/bigskeleton.tscn" id="8_ofw3e"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xvku"]
 texture = ExtResource("1_jepgm")

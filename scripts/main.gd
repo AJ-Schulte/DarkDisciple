@@ -30,13 +30,13 @@ func restart():
 	remove_child(get_node("death screen"))
 
 func open_main_menu():
+	$"Victory Screen".queue_free()
 	
-	game_world.queue_free()
-	get_tree().paused=false
+	$VBoxContainer/StartGame.disabled = false 
+	$VBoxContainer/Quit.disabled = false
+	$VBoxContainer/CreditsButton.disabled = false 
 	
-	var main_menu=load("res://scenes/menu/main_menu.tscn").instantiate()
-	add_child(main_menu)
-	main_menu.starting.connect(_on_start_game_pressed)
+	
 
 func quit_game():
 	get_tree().quit()
@@ -64,5 +64,5 @@ func open_victory_screen():
 	
 	var victoryScreen = load("res://scenes/victory_screen.tscn").instantiate()
 	add_child(victoryScreen)
-	victoryScreen.restart.connect(Callable(self, "restart"))
-	print("restart signal connected")
+	victoryScreen.returnToMenu.connect(Callable(self, "open_main_menu"))
+	print("return to menu signal connected")

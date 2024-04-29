@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cpdeaftm4l26i"]
 
-[ext_resource type="Script" path="res://scenes/victory_screen.gd" id="1_yw47t"]
+[ext_resource type="Script" path="res://scripts/victory_screen.gd" id="1_yw47t"]
 
 [node name="Victory Screen" type="Control"]
 layout_mode = 3
@@ -55,3 +55,5 @@ theme_override_colors/font_color = Color(0.862745, 0.729412, 0.176471, 1)
 theme_override_font_sizes/font_size = 150
 text = "Victory"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

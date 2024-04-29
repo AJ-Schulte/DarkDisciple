@@ -10,6 +10,8 @@ var attackcooldown = true
 var isAlive = true
 @onready var softcollision = $SoftCollision
 signal swordsmanDamage
+signal victoryScreen
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -76,6 +78,8 @@ func dealwithDamage():
 			$damage_cooldown.start()
 			
 		if health <= 0:
+			global.swordsmanDead = true
+			emit_signal("victoryScreen")
 			self.queue_free()
 		
 

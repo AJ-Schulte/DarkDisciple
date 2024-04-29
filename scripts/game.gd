@@ -68,7 +68,7 @@ func setDamage():
 	elif(current_level.get_node("swordsman") != null):
 		print("NOT NULL")
 		current_level.get_node("swordsman").swordsmanDamage.connect(Callable(player, "_on_swordsman_swordsman_damage"))
-		
+		current_level.get_node("swordsman").victoryScreen.connect(Callable(get_node("/root/Main"), "open_victory_screen"))
 		
 func _on_goto_room(scene:PackedScene, location):
 	#If we instance the new level insted of using change_scene(), we can do our setup in between. 

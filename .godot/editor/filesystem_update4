@@ -1,2 +1,15 @@
-res://scenes/colosseum.tscn
+res://scenes/victory_screen.tscn
+res://scripts/victory_screen.gd
+res://scripts/main.gd
+res://scripts/player.gd
+res://scenes/main.tscn
 res://scripts/game.gd
+res://scenes/Enemies/Bosses/swordsman.gd
+res://scenes/game.tscn
+res://scenes/player.tscn
+res://scenes/bed.tscn
+res://scenes/level_1.tscn
+res://scenes/colosseum.tscn
+res://scenes/level_3.tscn
+res://scenes/level_2.tscn
+res://scenes/Enemies/rogue.tscn

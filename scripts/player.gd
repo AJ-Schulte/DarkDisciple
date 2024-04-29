@@ -63,6 +63,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and not isAttacking and global.isDeflecting ==false and global.isAlive:
 		global.isPlayerAttacking = true;
 		$AnimatedSprite2D.play("attack")	
+		$AudioStreamPlayer2D.play()
 	
 	if Input.is_action_just_pressed("deflect") and global.isDeflecting ==false and deflectCooldown ==true and isAttacking ==false and global.isAlive:
 		global.isDeflecting = true;

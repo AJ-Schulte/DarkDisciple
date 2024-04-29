@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cflpuhqke04a5"]
+[gd_scene load_steps=38 format=3 uid="uid://cflpuhqke04a5"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_d0ykf"]
 [ext_resource type="Texture2D" uid="uid://dhaj3flute7su" path="res://assets/animations/crusader/Crusader-1-Attacking.png" id="2_dmoow"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbb0fp8xhnqwq" path="res://assets/animations/crusader/Crusader-1-Idle.png" id="4_k0rhy"]
 [ext_resource type="PackedScene" uid="uid://86e4aj52q1ty" path="res://scenes/HealthHUD.tscn" id="6_8t477"]
 [ext_resource type="Texture2D" uid="uid://dofp8465tyq2j" path="res://assets/animations/crusader/Crusader-1-Running.png" id="6_jf2mc"]
+[ext_resource type="AudioStream" uid="uid://1vwssvhiqkhe" path="res://assets/sounds/sword-slash-and-swing-185432.mp3" id="7_s65xe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0pig0"]
 atlas = ExtResource("2_dmoow")
@@ -272,6 +273,9 @@ wait_time = 0.404
 [node name="rm" type="RemoteTransform2D" parent="."]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_8t477")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_s65xe")
 
 [connection signal="ready" from="." to="." method="_ready"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

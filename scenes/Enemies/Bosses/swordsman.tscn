@@ -255,7 +255,7 @@ sprite_frames = SubResource("SpriteFrames_t5d11")
 animation = &"death"
 
 [node name="detection_area" parent="." index="1"]
-collision_layer = 4
+collision_mask = 6
 
 [node name="CollisionShape2D" parent="detection_area" index="0"]
 position = Vector2(-10, -9)
@@ -264,7 +264,7 @@ shape = SubResource("CircleShape2D_c4scb")
 
 [node name="enemy_hitbox" parent="." index="2"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 7
 
 [node name="CollisionShape2D" parent="enemy_hitbox" index="0"]
 scale = Vector2(7.70797, 5.38025)

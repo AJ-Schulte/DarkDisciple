@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_3cnvw"]
 [ext_resource type="Texture2D" uid="uid://ckgmu5ct0d8st" path="res://assets/Tiles/WallSet.png" id="3_lhjiy"]
 [ext_resource type="PackedScene" uid="uid://dancno1u4m843" path="res://scenes/bed.tscn" id="3_myoad"]
-[ext_resource type="PackedScene" uid="uid://cflpuhqke04a5" path="res://scenes/player.tscn" id="4_joxyv"]
+[ext_resource type="PackedScene" uid="uid://8gp4yhiw6pxq" path="res://scenes/Enemies/skeleton.tscn" id="4_wvlka"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0jo6"]
 texture = ExtResource("3_lhjiy")
@@ -115,7 +115,17 @@ checkpoint = "Level3Checkpoint3"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("4_joxyv")]
-position = Vector2(2288, 69.3333)
+[node name="cskeleton" parent="." instance=ExtResource("4_wvlka")]
+position = Vector2(1642.67, 309.333)
+scale = Vector2(0.9, 0.9)
+
+[node name="cskeleton3" parent="." instance=ExtResource("4_wvlka")]
+position = Vector2(341.333, 410.667)
+
+[node name="cskeleton2" parent="." instance=ExtResource("4_wvlka")]
+position = Vector2(1424, 1018.67)
+
+[node name="cskeleton4" parent="." instance=ExtResource("4_wvlka")]
+position = Vector2(181.333, 981.333)
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/final_boss_area.tscn", "Final Boss Area"]]

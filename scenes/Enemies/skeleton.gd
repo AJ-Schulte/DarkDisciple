@@ -74,6 +74,7 @@ func _on_animated_sprite_2d_animation_finished():
 			emit_signal("skeletonDamage")
 	if $AnimatedSprite2D.animation == "death":
 		self.queue_free()
+		global.skeletonDead = true
 
 func attackcheck():
 	if playerinAttZone ==true and attackcooldown==true:

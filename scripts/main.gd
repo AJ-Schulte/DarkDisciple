@@ -58,3 +58,11 @@ func _on_timer_timeout():
 	
 
 
+func open_victory_screen():
+	game_world.queue_free()
+	get_tree().paused = false
+	
+	var victoryScreen = load("res://scenes/victory_screen.tscn").instantiate()
+	add_child(victoryScreen)
+	victoryScreen.restart.connect(Callable(self, "restart"))
+	print("restart signal connected")

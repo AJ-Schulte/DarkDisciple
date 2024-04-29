@@ -234,3 +234,19 @@ func _on_swordsman_swordsman_damage():
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health) # Replace with function body. # Replace with function body. # Replace with function body.
+
+
+func _on_bigskeleton_skeleton_damage():
+	if enemyinRange and enemyCooldown == true:
+		if global.isDeflecting == false:
+			print("Health: ",health)
+			health -= 20
+			$CanvasLayer.take_damage(20)
+			print("Health not deflected: ",health)
+			player_damaged()
+		elif(global.isDeflecting):
+			deflectColor()
+		enemyCooldown = false
+		
+		$attackcooldown.start()
+		print(health) # Replace with function body. # Replace with function body.

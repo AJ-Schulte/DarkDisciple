@@ -43,19 +43,28 @@ func moveToDeath():
 func setDamage():
 	if(current_level.get_node("enemy") != null):
 		current_level.get_node("enemy").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
-	if(current_level.get_node("goblin") != null):
+	elif(current_level.get_node("goblin") != null):
 		current_level.get_node("goblin").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("goblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("goblin3").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("goblin4").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
-	if(current_level.get_node("cgoblin") != null):
+	elif(current_level.get_node("cgoblin") != null):
 		current_level.get_node("cgoblin").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("cgoblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
-	if(current_level.get_node("Golem") != null):
+	elif(current_level.get_node("Golem") != null):
 		current_level.get_node("Golem").GolemDoDamage.connect(Callable(player, "_on_golem_golem_do_damage"))
-	if(current_level.get_node("Skeleton") != null):
-		current_level.get_node("Skeleton").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
-
+	elif(current_level.get_node("cskeleton") != null):
+		print("WOW")
+		current_level.get_node("cskeleton2").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
+		current_level.get_node("cskeleton").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
+		current_level.get_node("cskeleton3").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
+		current_level.get_node("cskeleton4").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
+		current_level.get_node("bigskeleton").skeletonDamage.connect(Callable(player, "_on_bigskeleton_skeleton_damage"))
+	elif(current_level.get_node("swordsman") != null):
+		print("NOT NULL")
+		current_level.get_node("swordsman").swordsmanDamage.connect(Callable(player, "_on_swordsman_swordsman_damage"))
+		
+		
 func _on_goto_room(scene:PackedScene, location):
 	#If we instance the new level insted of using change_scene(), we can do our setup in between. 
 	#like using a tween to slowly move the camera to the new area.

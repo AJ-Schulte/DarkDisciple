@@ -1,6 +1,6 @@
 extends Node
 
-
+var skeletonDead = false
 var isPlayerAttacking = false
 var playerHealth = 100
 var isDeflecting = false

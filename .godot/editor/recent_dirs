@@ -1,16 +1,15 @@
+res://scenes
+res://scenes/Enemies/Bosses
+res://scenes/Enemies
 res://scripts
 <<<<<<< Updated upstream
 res://
-res://scenes/Enemies
 res://assets/Enemies/Swordsman
 =======
 >>>>>>> Stashed changes
 res://assets/Enemies/Rogue
-res://scenes/Enemies
-res://scenes/Enemies/Bosses
 res://assets/Enemies/Swordsman
 res://assets/Enemies/Golem
-res://scenes
 res://assets/Enemies/Skeleton
 res://assets/animations/crusader
 res://assets/Tiles

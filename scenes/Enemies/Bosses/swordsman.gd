@@ -68,10 +68,9 @@ func dealwithDamage():
 	if playerinAttZone and global.isPlayerAttacking == true:
 		if damagecooldown == true:
 			health = health - 20
+			$hurt.play()
 			damagecooldown = false
 			attackcooldown = false
-			$attack_cooldown.start()
-			
 			$AnimatedSprite2D.modulate = Color(1,0,0)
 			$hit.start()
 			print("Swordsman Health: ", health)
@@ -81,6 +80,7 @@ func dealwithDamage():
 			
 			$AnimatedSprite2D.play("death")
 			isAlive = false
+			$death.play()
 			
 		
 
@@ -120,7 +120,7 @@ func _on_enemy_hitbox_body_exited(body):
 		
 
 func attackcheck():
-	if playerinAttZone ==true and attackcooldown==true:
+	if playerinAttZone ==true and attackcooldown==true and isAlive:
 		attackcooldown = false
 		var num = randf()
 		print(num)

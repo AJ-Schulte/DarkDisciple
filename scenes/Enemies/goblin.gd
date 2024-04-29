@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	dealwithDamage()
 	attackcheck()
-	if playerChase==true and isAttacking ==false and playerinAttZone==false:
+	if playerChase==true and isAttacking ==false and playerinAttZone==false and isAlive:
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk")
 		
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
-		if playerChase==false and isAttacking ==false and playerinAttZone==false:
+		if playerChase==false and isAttacking ==false and playerinAttZone==false and isAlive:
 			$AnimatedSprite2D.play("idle")
 
 
@@ -108,7 +108,7 @@ func _on_enemy_hitbox_body_exited(body):
 		isAttacking = false
 
 func attackcheck():
-	if playerinAttZone ==true and attackcooldown==true:
+	if playerinAttZone ==true and attackcooldown==true and isAlive:
 		attackcooldown = false
 		$AnimatedSprite2D.play("attack")
 		isAttacking = true

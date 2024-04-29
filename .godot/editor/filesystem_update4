@@ -12,3 +12,8 @@ res://scenes/Enemies/Bosses/swordsman.tscn
 res://scenes/Enemies/Bosses/swordsman.gd
 res://scripts/player.gd
 res://scripts/level.gd
+res://scenes/Enemies/goblin.tscn
+res://scenes/Enemies/goblin.gd
+res://scenes/Enemies/skeleton.gd
+res://scenes/Enemies/Bosses/Golem.tscn
+res://scenes/Enemies/Bosses/Golem.gd

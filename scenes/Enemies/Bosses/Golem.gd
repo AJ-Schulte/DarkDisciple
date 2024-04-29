@@ -66,6 +66,7 @@ func dealwithDamage():
 			health = health - 10
 			damagecooldown = false
 			$AnimatedSprite2D.modulate = Color(1,0,1)
+			$hit2.play()
 			$hit.start()
 			print("Golem Health: ", health)
 			$damage_cooldown.start()
@@ -74,6 +75,7 @@ func dealwithDamage():
 		$AnimatedSprite2D.play("death")
 		isAlive = false
 		global.golemDead = true
+		$death.play()
 		
 
 func _on_animated_sprite_2d_animation_finished():

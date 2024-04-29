@@ -55,6 +55,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = false
 	elif velocity.y != 0 and global.isPlayerAttacking==false and global.isDeflecting==false and global.isAlive:
 		$AnimatedSprite2D.play("walk")
+		
 	else:
 		if global.isPlayerAttacking == false and global.isDeflecting ==false and global.isAlive:
 			$AnimatedSprite2D.play("idle")
@@ -63,7 +64,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and not isAttacking and global.isDeflecting ==false and global.isAlive:
 		global.isPlayerAttacking = true;
 		$AnimatedSprite2D.play("attack")	
-		$AudioStreamPlayer2D.play()
+		$slash.play()
 	
 	if Input.is_action_just_pressed("deflect") and global.isDeflecting ==false and deflectCooldown ==true and isAttacking ==false and global.isAlive:
 		global.isDeflecting = true;
@@ -130,6 +131,7 @@ func _on_enemy_do_damage():
 			player_damaged()
 		elif(global.isDeflecting):
 			deflectColor()
+			$deflect.play()
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health)
@@ -153,6 +155,7 @@ func _on_goblin_goblin_damage():
 			print("Health not deflected: ",health)
 		elif(global.isDeflecting):
 			deflectColor()
+			$deflect.play()
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health)# Replace with function body.
@@ -160,6 +163,7 @@ func _on_goblin_goblin_damage():
 func player_damaged():
 	$AnimatedSprite2D.modulate = Color(1,0,0)
 	$damaged.start()
+	$hurt.play()
 func _on_damaged_timeout():
 	$AnimatedSprite2D.modulate = Color(1,1,1)
 
@@ -174,6 +178,7 @@ func _on_skeleton_skeleton_damage():
 			player_damaged()
 		elif(global.isDeflecting):
 			deflectColor()
+			$deflect.play()
 		enemyCooldown = false
 		
 		$attackcooldown.start()
@@ -195,6 +200,7 @@ func _on_golem_golem_do_damage():
 			
 		elif(global.isDeflecting):
 			deflectColor()
+			$deflect.play()
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health) # Replace with function body. # Replace with function body.
@@ -233,6 +239,7 @@ func _on_swordsman_swordsman_damage():
 			player_damaged()
 		elif(global.isDeflecting):
 			deflectColor()
+			$deflect.play()
 		enemyCooldown = false
 		$attackcooldown.start()
 		print(health) # Replace with function body. # Replace with function body. # Replace with function body.
@@ -248,6 +255,7 @@ func _on_bigskeleton_skeleton_damage():
 			player_damaged()
 		elif(global.isDeflecting):
 			deflectColor()
+			$deflect.play()
 		enemyCooldown = false
 		
 		$attackcooldown.start()

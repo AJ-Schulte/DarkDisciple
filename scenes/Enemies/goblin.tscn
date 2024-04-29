@@ -140,7 +140,7 @@ script = ExtResource("2_muatk")
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_sa8du")
-animation = &"death"
+animation = &"attack"
 
 [node name="detection_area" parent="." index="1"]
 scale = Vector2(1.24, 1.44948)
@@ -160,7 +160,7 @@ scale = Vector2(3.8, 3.16)
 shape = SubResource("CircleShape2D_tuiqn")
 
 [node name="hitbox" parent="." index="6"]
-position = Vector2(3, 7)
+position = Vector2(6, 9)
 scale = Vector2(1.37379, 1.18804)
 shape = SubResource("CapsuleShape2D_vrbrf")
 

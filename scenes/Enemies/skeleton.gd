@@ -17,7 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	dealwithDamage()
 	attackcheck()
-	if playerChase==true and isAttacking ==false and playerinAttZone==false:
+	if playerChase==true and isAttacking ==false and playerinAttZone==false and isDead==false:
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk")
 		
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 	else:
-		if playerChase==false and isAttacking ==false and playerinAttZone==false:
+		if playerChase==false and isAttacking ==false and playerinAttZone==false and isDead==false:
 			$AnimatedSprite2D.play("idle")
 	
 	if softcollision.is_colliding():
@@ -77,7 +77,7 @@ func _on_animated_sprite_2d_animation_finished():
 		global.skeletonDead = true
 
 func attackcheck():
-	if playerinAttZone ==true and attackcooldown==true:
+	if playerinAttZone ==true and attackcooldown==true and isDead==false:
 			attackcooldown = false
 			$AnimatedSprite2D.play("attack")
 			isAttacking = true

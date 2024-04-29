@@ -7,6 +7,7 @@ func _on_checkpoint_entered(_body):
 	print("checkpoint updated")
 	global.currentCheckpoint = checkpoint
 	global.playerHealth = 100
+	global.isAlive = true
 	print(global.playerHealth)
 	emit_signal("refreshHealth")
 

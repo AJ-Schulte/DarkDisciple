@@ -41,8 +41,12 @@ func moveToDeath():
 	emit_signal("deathScreen")
 
 func setDamage():
-	if(current_level.get_node("enemy") != null):
-		current_level.get_node("enemy").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
+	if(current_level.get_node("rogue") != null):
+		current_level.get_node("rogue").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
+		current_level.get_node("rogue2").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
+		current_level.get_node("rogue3").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
+		current_level.get_node("rogue4").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
+		current_level.get_node("rogue5").doDamage.connect(Callable(player, "_on_enemy_do_damage"))
 	elif(current_level.get_node("goblin") != null):
 		current_level.get_node("goblin").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 		current_level.get_node("goblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
@@ -53,13 +57,16 @@ func setDamage():
 		current_level.get_node("cgoblin2").goblinDamage.connect(Callable(player, "_on_goblin_goblin_damage"))
 	elif(current_level.get_node("Golem") != null):
 		current_level.get_node("Golem").GolemDoDamage.connect(Callable(player, "_on_golem_golem_do_damage"))
+	elif(current_level.get_node("bigskeleton") != null):
+				current_level.get_node("bigskeleton").skeletonDamage.connect(Callable(player, "_on_bigskeleton_skeleton_damage"))
+				current_level.get_node("skeleton").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
+				current_level.get_node("skeleton2").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
 	elif(current_level.get_node("cskeleton") != null):
 		print("WOW")
 		current_level.get_node("cskeleton2").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
 		current_level.get_node("cskeleton").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
 		current_level.get_node("cskeleton3").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
 		current_level.get_node("cskeleton4").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
-		current_level.get_node("bigskeleton").skeletonDamage.connect(Callable(player, "_on_bigskeleton_skeleton_damage"))
 	elif(current_level.get_node("swordsman") != null):
 		print("NOT NULL")
 		current_level.get_node("swordsman").swordsmanDamage.connect(Callable(player, "_on_swordsman_swordsman_damage"))
@@ -82,6 +89,7 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Camera2D").limit_bottom = 1296
 		player.set_position(Vector2(900,900))
 		player.set_scale(Vector2(1, 1))
+		
 		call_deferred('setDamage')
 	elif (location == 'Church'):
 		player.set_rm("/root/Main/Game/Levels/Church/Camera2D")
@@ -105,6 +113,7 @@ func _on_goto_room(scene:PackedScene, location):
 			player.set_position(Vector2(522,364))
 		elif(current_level == $Levels/Church):
 			player.set_position(Vector2(5944, 2112))
+		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
 		call_deferred('setDamage')
 	elif(location == 'Colosseum'):
 		player.set_rm("null")
@@ -126,6 +135,8 @@ func _on_goto_room(scene:PackedScene, location):
 		player.set_position(Vector2(272, 296))
 		player.set_scale(Vector2(0.8,0.8))
 		player.SPEED = 160.0
+		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
+		call_deferred('setDamage')
 	if(location == 'Level 2'):
 		print(player.position)
 		
@@ -141,6 +152,9 @@ func _on_goto_room(scene:PackedScene, location):
 			player.SPEED = 320.0
 		elif(current_level == $Levels/Church):
 			player.set_position(Vector2(3950, 1408))
+		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
+		new_level.get_node("Bed2").refreshHealth.connect(Callable(self, "refreshHealth"))
+		call_deferred('setDamage')
 	elif(location == 'Final Boss Area'):
 		player.set_rm("/root/Main/Game/Levels/Final Boss Area/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0
@@ -149,6 +163,7 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Camera2D").limit_bottom = 1296
 		new_level.get_node("Camera2D").set_zoom(Vector2(1.2, 1.2))
 		player.set_position(Vector2(1025,1060))
+		call_deferred('setDamage')
 	elif(location == 'Level 3'):
 		player.set_rm("/root/Main/Game/Levels/Level 3/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0
@@ -158,6 +173,10 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Camera2D").set_zoom(Vector2(1.5,1.5))
 		player.set_scale(Vector2(1, 1))
 		player.set_position(Vector2(2314,42))
+		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
+		new_level.get_node("Bed2").refreshHealth.connect(Callable(self, "refreshHealth"))
+		new_level.get_node("Bed3").refreshHealth.connect(Callable(self, "refreshHealth"))
+		call_deferred('setDamage')
 		
 	new_level.goto_room.connect(_on_goto_room)
 	#new_level.goto_main.connect(_on_goto_main)

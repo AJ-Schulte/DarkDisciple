@@ -195,4 +195,11 @@ shape = SubResource("CircleShape2D_j7jpk")
 [node name="bigskeleton" parent="." instance=ExtResource("7_fexec")]
 position = Vector2(4336, 2864)
 
+[node name="hitbox" parent="bigskeleton" index="6"]
+position = Vector2(-8, 0)
+scale = Vector2(-3.22449, -5.30779)
+
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_3.tscn", "Level 3"]]
+
+[editable path="bigskeleton"]
+[editable path="bigskeleton/SoftCollision"]

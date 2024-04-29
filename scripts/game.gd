@@ -123,6 +123,7 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Camera2D").set_zoom(Vector2(0.4, 0.3))
 		player.set_position(Vector2(4560,3968))
 		player.set_scale(Vector2(3,3))
+		call_deferred('setDamage')
 	elif(location == 'House'):
 		player.set_rm("/root/Main/Game/Levels/House/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0

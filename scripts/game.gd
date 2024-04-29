@@ -114,14 +114,14 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
 		call_deferred('setDamage')
 	elif(location == 'Colosseum'):
-		player.set_rm("null")
-		player.set_rm("root/Main/Game/Levels/Colosseum/Camera2D")
+		player.set_rm("/root/Main/Game/Levels/Colosseum/Camera2D")
 		new_level.get_node("Camera2D").limit_left = 0
-		new_level.get_node("Camera2D").limit_right = 6800
+		new_level.get_node("Camera2D").limit_right = 8824
 		new_level.get_node("Camera2D").limit_top = 0
-		new_level.get_node("Camera2D").limit_bottom = 4560
-		new_level.get_node("Camera2D").set_zoom(Vector2(0.4, 0.3))
-		player.set_position(Vector2(4560,3968))
+		new_level.get_node("Camera2D").limit_bottom = 5760
+		new_level.get_node("Camera2D").set_zoom(Vector2(0.5, 0.5))
+		player.set_position(Vector2(4432,4008))
+		player.SPEED = 500
 		player.set_scale(Vector2(3,3))
 		call_deferred('setDamage')
 	elif(location == 'House'):
@@ -172,6 +172,7 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Camera2D").set_zoom(Vector2(1.5,1.5))
 		player.set_scale(Vector2(1, 1))
 		player.set_position(Vector2(2314,42))
+		player.SPEED = 320
 		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
 		new_level.get_node("Bed2").refreshHealth.connect(Callable(self, "refreshHealth"))
 		new_level.get_node("Bed3").refreshHealth.connect(Callable(self, "refreshHealth"))

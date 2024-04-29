@@ -233,8 +233,8 @@ func _on_swordsman_swordsman_damage():
 	if enemyinRange and enemyCooldown == true:
 		if global.isDeflecting == false:
 			print("Health: ",health)
-			health -= 30
-			$CanvasLayer.take_damage(30)
+			health -= 40
+			$CanvasLayer.take_damage(40)
 			print("Health not deflected: ",health)
 			player_damaged()
 		elif(global.isDeflecting):

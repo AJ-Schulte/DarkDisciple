@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8wfw0yhpdnv5"]
+[gd_scene load_steps=13 format=3 uid="uid://8wfw0yhpdnv5"]
 
 [ext_resource type="Texture2D" uid="uid://f5eu1oob2c2m" path="res://assets/Tiles/Dungeon_Tileset.png" id="1_o4t5g"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_tuh8l"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bidjt6b367o73" path="res://assets/Tiles/wall.png" id="4_hckf0"]
 [ext_resource type="Texture2D" uid="uid://dpkbh4gquorsl" path="res://assets/Sprites/blue_orb.png" id="6_voacg"]
 [ext_resource type="PackedScene" uid="uid://pfhtpvnh8w4" path="res://scenes/Enemies/bigskeleton.tscn" id="7_fexec"]
-[ext_resource type="PackedScene" uid="uid://8gp4yhiw6pxq" path="res://scenes/Enemies/skeleton.tscn" id="7_q76lp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uj67k"]
 texture = ExtResource("1_o4t5g")
@@ -195,13 +194,5 @@ shape = SubResource("CircleShape2D_j7jpk")
 
 [node name="bigskeleton" parent="." instance=ExtResource("7_fexec")]
 position = Vector2(4336, 2864)
-
-[node name="skeleton" parent="." instance=ExtResource("7_q76lp")]
-position = Vector2(3200, 3264)
-scale = Vector2(1.2, 1.2)
-
-[node name="skeleton2" parent="." instance=ExtResource("7_q76lp")]
-position = Vector2(5264, 3360)
-scale = Vector2(1.2, 1.2)
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/level_3.tscn", "Level 3"]]

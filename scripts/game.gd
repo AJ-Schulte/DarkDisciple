@@ -58,9 +58,7 @@ func setDamage():
 	elif(current_level.get_node("Golem") != null):
 		current_level.get_node("Golem").GolemDoDamage.connect(Callable(player, "_on_golem_golem_do_damage"))
 	elif(current_level.get_node("bigskeleton") != null):
-				current_level.get_node("bigskeleton").skeletonDamage.connect(Callable(player, "_on_bigskeleton_skeleton_damage"))
-				current_level.get_node("skeleton").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
-				current_level.get_node("skeleton2").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))
+		current_level.get_node("bigskeleton").skeletonDamage.connect(Callable(player, "_on_bigskeleton_skeleton_damage"))
 	elif(current_level.get_node("cskeleton") != null):
 		print("WOW")
 		current_level.get_node("cskeleton2").skeletonDamage.connect(Callable(player, "_on_skeleton_skeleton_damage"))

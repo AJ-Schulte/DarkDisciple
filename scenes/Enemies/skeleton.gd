@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var health = 100
+var health = 120
 var playerinAttZone = false
 var player = null
 var playerChase = false
@@ -96,8 +96,6 @@ func dealwithDamage():
 			health = health - 20
 			damagecooldown = false
 			attackcooldown = false
-			$attack_cooldown.start()
-			$AnimatedSprite2D.play("idle")
 			$AnimatedSprite2D.modulate = Color(1,0,0)
 			$hit.start()
 			print("Skeleton Health: ", health)

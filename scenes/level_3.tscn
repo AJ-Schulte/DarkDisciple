@@ -118,23 +118,25 @@ checkpoint = "Level3Checkpoint3"
 [node name="cskeleton" parent="." instance=ExtResource("4_wvlka")]
 position = Vector2(1642.67, 309.333)
 scale = Vector2(0.6, 0.6)
-collision_layer = 5
 
 [node name="cskeleton3" parent="." instance=ExtResource("4_wvlka")]
 position = Vector2(341.333, 410.667)
 scale = Vector2(0.6, 0.6)
 
+[node name="AnimatedSprite2D" parent="cskeleton3" index="0"]
+frame_progress = 0.0
+
 [node name="cskeleton2" parent="." instance=ExtResource("4_wvlka")]
 position = Vector2(1424, 1018.67)
 scale = Vector2(0.6, 0.6)
-collision_layer = 5
 
 [node name="cskeleton4" parent="." instance=ExtResource("4_wvlka")]
 position = Vector2(181.333, 981.333)
 scale = Vector2(0.6, 0.6)
-collision_layer = 5
 
 [connection signal="body_entered" from="TransitionArea" to="." method="_on_transition_entered" binds= ["res://scenes/final_boss_area.tscn", "Final Boss Area"]]
 
+[editable path="cskeleton"]
+[editable path="cskeleton/SoftCollision"]
 [editable path="cskeleton3"]
 [editable path="cskeleton3/SoftCollision"]

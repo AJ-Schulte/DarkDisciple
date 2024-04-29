@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byvlarocokvxb"]
+[gd_scene load_steps=14 format=3 uid="uid://byvlarocokvxb"]
 
 [ext_resource type="Script" path="res://scripts/sample_level.gd" id="1_0dx30"]
 [ext_resource type="Texture2D" uid="uid://db1ffcygppb6p" path="res://assets/Tiles/generalTiles.png" id="1_jepgm"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjeorf2jymc0" path="res://scenes/Enemies/rogue.tscn" id="5_y1sfy"]
 [ext_resource type="PackedScene" uid="uid://bm2m8a7rdgfgu" path="res://scenes/Enemies/Bosses/swordsman.tscn" id="7_kes2s"]
 [ext_resource type="PackedScene" uid="uid://pfhtpvnh8w4" path="res://scenes/Enemies/bigskeleton.tscn" id="8_ofw3e"]
-
+[ext_resource type="PackedScene" uid="uid://8gp4yhiw6pxq" path="res://scenes/Enemies/skeleton.tscn" id="9_5ae3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6xvku"]
 texture = ExtResource("1_jepgm")
@@ -2941,6 +2941,9 @@ position = Vector2(932, -370)
 [node name="bigskeleton" parent="." instance=ExtResource("8_ofw3e")]
 position = Vector2(460, 453)
 
+[node name="skeleton" parent="." instance=ExtResource("9_5ae3i")]
+
 [connection signal="doDamage" from="enemy" to="Player" method="_on_enemy_do_damage"]
 [connection signal="swordsmanDamage" from="swordsman" to="Player" method="_on_swordsman_swordsman_damage"]
 [connection signal="skeletonDamage" from="bigskeleton" to="Player" method="_on_bigskeleton_skeleton_damage"]
+[connection signal="skeletonDamage" from="skeleton" to="Player" method="_on_skeleton_skeleton_damage"]

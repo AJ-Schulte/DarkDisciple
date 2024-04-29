@@ -172,8 +172,8 @@ func _on_skeleton_skeleton_damage():
 	if enemyinRange and enemyCooldown == true:
 		if global.isDeflecting == false:
 			print("Health: ",health)
-			health -= 20
-			$CanvasLayer.take_damage(20)
+			health -= 15
+			$CanvasLayer.take_damage(15)
 			print("Health not deflected: ",health)
 			player_damaged()
 		elif(global.isDeflecting):
@@ -249,8 +249,8 @@ func _on_bigskeleton_skeleton_damage():
 	if enemyinRange and enemyCooldown == true:
 		if global.isDeflecting == false:
 			print("Health: ",health)
-			health -= 20
-			$CanvasLayer.take_damage(20)
+			health -= 30
+			$CanvasLayer.take_damage(30)
 			print("Health not deflected: ",health)
 			player_damaged()
 		elif(global.isDeflecting):

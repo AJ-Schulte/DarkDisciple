@@ -172,7 +172,7 @@ func _on_goto_room(scene:PackedScene, location):
 		new_level.get_node("Camera2D").set_zoom(Vector2(1.5,1.5))
 		player.set_scale(Vector2(1, 1))
 		player.set_position(Vector2(2314,42))
-		player.SPEED = 320
+		player.SPEED = 240
 		new_level.get_node("Bed").refreshHealth.connect(Callable(self, "refreshHealth"))
 		new_level.get_node("Bed2").refreshHealth.connect(Callable(self, "refreshHealth"))
 		new_level.get_node("Bed3").refreshHealth.connect(Callable(self, "refreshHealth"))

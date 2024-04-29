@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://8gp4yhiw6pxq"]
+[gd_scene load_steps=26 format=3 uid="uid://8gp4yhiw6pxq"]
 
 [ext_resource type="PackedScene" uid="uid://cd7hvajdquh6b" path="res://scenes/Enemies/baseEnemy.tscn" id="1_tsyuo"]
 [ext_resource type="Script" path="res://scenes/Enemies/skeleton.gd" id="2_4bojd"]
@@ -6,10 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cii41yrg11q5i" path="res://assets/Enemies/Skeleton/Idle.png" id="3_m4avi"]
 [ext_resource type="Texture2D" uid="uid://bs0gaxiksl6cg" path="res://assets/Enemies/Skeleton/Walk.png" id="4_3v2wo"]
 [ext_resource type="Texture2D" uid="uid://dde5n26jaodv2" path="res://assets/Enemies/Skeleton/Death.png" id="4_wob4r"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c18rl"]
-atlas = ExtResource("2_wi3np")
-region = Rect2(600, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4c0c"]
 atlas = ExtResource("2_wi3np")
@@ -26,10 +22,6 @@ region = Rect2(1050, 0, 150, 150)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3uh3f"]
 atlas = ExtResource("2_wi3np")
 region = Rect2(150, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgp25"]
-atlas = ExtResource("2_wi3np")
-region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3anh"]
 atlas = ExtResource("4_wob4r")
@@ -79,9 +71,6 @@ region = Rect2(450, 0, 150, 150)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c18rl")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_g4c0c")
 }, {
 "duration": 1.0,
@@ -92,9 +81,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3uh3f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cgp25")
 }],
 "loop": false,
 "name": &"attack",
@@ -161,7 +147,7 @@ script = ExtResource("2_4bojd")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_kpv2u")
 animation = &"attack"
-frame = 5
+frame = 3
 frame_progress = 1.0
 
 [node name="detection_area" parent="." index="1"]
@@ -190,8 +176,8 @@ wait_time = 2.026
 position = Vector2(22, 41)
 
 [node name="hitbox" parent="." index="6"]
-position = Vector2(-4, -7)
-scale = Vector2(-2.9178, -5.30779)
+position = Vector2(3, -7)
+scale = Vector2(-3.7578, -3.70779)
 shape = SubResource("CircleShape2D_apq5t")
 
 [node name="hit" type="Timer" parent="." index="7"]

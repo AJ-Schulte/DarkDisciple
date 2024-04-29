@@ -30,8 +30,11 @@ func _ready():
 	player.set_position(Vector2(522,364))
 	player.set_rm("/root/Main/Game/Levels/Level 1/Camera2D")
 	player.playerDeath.connect(Callable(self, "moveToDeath"))
+	$Levels/"Level 1"/Bed.refreshHealth.connect(Callable(self, "refreshHealth"))
 	call_deferred('setDamage')
-	
+
+func refreshHealth():
+	player.refreshHealth()
 
 func moveToDeath():
 	get_tree().paused = true

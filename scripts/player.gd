@@ -89,6 +89,10 @@ func _on_animated_sprite_2d_animation_finished():
 		#change scene
 		
 	
+func refreshHealth():
+	print("refresh health")
+	health = global.playerHealth
+	$CanvasLayer.set_current_health(global.playerHealth)
 
 
 func _on_hitbox_body_entered(body):
